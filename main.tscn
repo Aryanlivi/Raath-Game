@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Ground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Raath.tscn" type="PackedScene" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Raath" parent="." instance=ExtResource( 2 )]
+position = Vector2( 9.89951, -161.22 )
+
+[node name="Ground" parent="." instance=ExtResource( 1 )]
+rotation = 0.122173
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 509.962, -297.404 )
+scale = Vector2( 3.00993, 0.710939 )
+current = true
+zoom = Vector2( 2, 2 )
