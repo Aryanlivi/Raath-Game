@@ -9,7 +9,6 @@
 position = Vector2( 9.89951, -161.22 )
 
 [node name="Ground" parent="." instance=ExtResource( 1 )]
-rotation = 0.122173
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 509.962, -297.404 )
