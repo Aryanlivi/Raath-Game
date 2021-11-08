@@ -1,40 +1,50 @@
-extends Node2D
-onready var s2body=get_parent().get_node("S2");
-onready var Raath=get_parent().get_node("Raathnew")
+extends Node2D 
+
+onready var sbody2=get_parent().get_node("S2");
 var RopePiece=preload("res://RopePiece.tscn")
-var RopeEndPiece=preload("res://RopeEndPiece.tscn")
-onready var piece_length=5
-func spawn(body,startpos:Vector2,endpos:Vector2):
+var no_of_pieces=0;
+const offset=Vector2(8,0)
+const piece_size=16;
+var pieces=[]
+func spawn(body:PhysicsBody2D,startpos:Vector2,endpos:Vector2):
+	var sjoint1=body.get_node("J")
+	sjoint1.node_a=body.get_path()
+	
+	var sjoint2=sbody2.get_node("J")
+	add_child(sbody2)
+	
+	#Calculate distance to find no of required pieces.
 	var distance=startpos.distance_to(endpos)
-	var no_of_pieces=round(distance/piece_length)
-	print(no_of_pieces)
+	no_of_pieces=round(distance/piece_size)
 	
-	var rope_start_piece=RopeEndPiece.instance()
-	rope_start_piece.global_position=startpos
-	var start_joint=rope_start_piece.get_node("C/J")
-	start_joint.node_b=body.get_path()
-	add_child(rope_start_piece)
-	
-	var piece=rope_start_piece;
-	var joint=start_joint;
-	for i in range(1,no_of_pieces):
-		piece=add_pieces(piece,joint)
-		joint=piece.get_node("C/J")
+	#starting_joint
+	var joint=sjoint1;
+	for i in range(0,no_of_pieces):
+		init_rope(joint)
+		joint=pieces[i].get_node("J")
 		
-	var rope_end_piece=RopeEndPiece.instance()
-	rope_end_piece.global_position=endpos
-	joint.node_b=rope_end_piece.get_path()
-	#piece.global_position=s2body.global_position
-	var end_joint=rope_end_piece.get_node("C/J")
-	end_joint.node_b=s2body.get_path()
-	add_child(rope_end_piece)
+	for i in range(0,no_of_pieces):
+		add_joint(i)
+		
+	var startpiece=pieces[0]
+	sjoint1.node_b=startpiece.get_path()
+	var endpiece=pieces[pieces.size()-1];
+	sjoint2.node_a=sbody2.get_path()
+	endpiece.global_position=sjoint2.global_position-offset
+	sjoint2.node_b=endpiece.get_path()
 	
-	
-func add_pieces(prev_piece:RigidBody2D,joint:PinJoint2D):
+func init_rope(joint:PinJoint2D):
 	var rope_piece=RopePiece.instance()
-	rope_piece.global_position=joint.global_position
-	var piece_joint=rope_piece.get_node("C/J")
-	piece_joint.node_b=prev_piece.get_path()
+	rope_piece.global_position=joint.global_position+offset
 	add_child(rope_piece)
-	return rope_piece
-	
+	pieces.append(rope_piece);
+
+func add_joint(index:int):
+	var joint=pieces[index].get_node("J")
+	joint.node_a=pieces[index].get_path()
+	if(index+1!=no_of_pieces):
+		joint.node_b=pieces[index+1].get_path()
+		
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
