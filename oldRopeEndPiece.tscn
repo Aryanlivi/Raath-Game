@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 3.0
+
+[sub_resource type="SphereMesh" id=2]
+
+[node name="RopeEndPiece" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="C" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="J" type="PinJoint2D" parent="C"]
+node_a = NodePath("../..")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2( 2.72, 2.80402 )
+mesh = SubResource( 2 )

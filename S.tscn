@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 24.0
+
+[node name="S" type="StaticBody2D"]
+position = Vector2( -72, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="C" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="J" type="PinJoint2D" parent="."]

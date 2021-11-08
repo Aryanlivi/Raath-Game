@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/upperbodyold.png-e9ec56ccb059765941fb3012d667f9cf.stex"
+path="res://.import/wheelsupportnew.png-07353ae50e512d0fbd4995b7fca6a005.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://upperbodyold.png"
-dest_files=[ "res://.import/upperbodyold.png-e9ec56ccb059765941fb3012d667f9cf.stex" ]
+source_file="res://assets/wheelsupportnew.png"
+dest_files=[ "res://.import/wheelsupportnew.png-07353ae50e512d0fbd4995b7fca6a005.stex" ]
 
 [params]
 

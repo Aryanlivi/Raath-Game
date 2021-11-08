@@ -10,30 +10,30 @@
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 209.547, 10.1625 )
 
-[sub_resource type="CubeMesh" id=3]
+[sub_resource type="SphereMesh" id=3]
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 60.0612, 29.7495 )
-
-[sub_resource type="SphereMesh" id=5]
-
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=4]
 radius = 51.6211
+
+[sub_resource type="CubeMesh" id=5]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 10.2914, 19.919 )
 
 [sub_resource type="CubeMesh" id=7]
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 10.2914, 19.919 )
+extents = Vector2( 49.934, 50.1495 )
 
 [sub_resource type="CubeMesh" id=9]
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 49.934, 50.1495 )
+extents = Vector2( 100.263, 5.22585 )
 
 [sub_resource type="CubeMesh" id=11]
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 100.263, 5.22585 )
+extents = Vector2( 60.0612, 29.7495 )
 
 [sub_resource type="PrismMesh" id=13]
 
@@ -52,18 +52,141 @@ mesh = SubResource( 1 )
 position = Vector2( 0.360428, 0.128502 )
 shape = SubResource( 2 )
 
+[node name="WheelA" type="RigidBody2D" parent="."]
+position = Vector2( 81.1732, -76.7676 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="WheelA"]
+scale = Vector2( 50, 50 )
+mesh = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WheelA"]
+shape = SubResource( 4 )
+
+[node name="Wheeljoint" type="PinJoint2D" parent="WheelA"]
+position = Vector2( 0.205322, 0.348541 )
+node_a = NodePath("..")
+node_b = NodePath("../../Wheelsupport")
+
+[node name="Sprite" type="Sprite" parent="WheelA"]
+position = Vector2( -0.529724, -1.05949 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 4 )
+
+[node name="WheelB" type="RigidBody2D" parent="."]
+position = Vector2( 210.173, -76.7676 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="WheelB"]
+scale = Vector2( 50, 50 )
+mesh = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WheelB"]
+shape = SubResource( 4 )
+
+[node name="Wheeljoint" type="PinJoint2D" parent="WheelB"]
+position = Vector2( 0.0628662, 0.0770569 )
+node_a = NodePath("..")
+node_b = NodePath("../../Wheelsupport")
+
+[node name="Sprite" type="Sprite" parent="WheelB"]
+position = Vector2( -0.529724, -1.05949 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 4 )
+
+[node name="Crowbar" type="RigidBody2D" parent="."]
+position = Vector2( 382.045, -86.3729 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Crowbar"]
+scale = Vector2( 10, 20 )
+mesh = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crowbar"]
+shape = SubResource( 6 )
+
+[node name="CrowbarJoint" type="PinJoint2D" parent="Crowbar"]
+position = Vector2( -0.0045166, 0.0185547 )
+node_a = NodePath("..")
+node_b = NodePath("../../Wheelsupport")
+
+[node name="CrowbarJoint2" type="PinJoint2D" parent="Crowbar"]
+position = Vector2( 1.01917, 11.3647 )
+node_a = NodePath("..")
+node_b = NodePath("../../Wheelsupport")
+
+[node name="Rect1" type="RigidBody2D" parent="."]
+position = Vector2( 143.738, -206.127 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Rect1"]
+visible = false
+scale = Vector2( 50, 50 )
+mesh = SubResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rect1"]
+visible = false
+shape = SubResource( 8 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Rect1"]
+node_a = NodePath("..")
+node_b = NodePath("../../Rect2")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="Rect1"]
+position = Vector2( 40, 0 )
+node_a = NodePath("..")
+node_b = NodePath("../../Rect2")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="Rect1"]
+position = Vector2( -40, 0 )
+node_a = NodePath("..")
+node_b = NodePath("../../Rect2")
+
+[node name="Sprite" type="Sprite" parent="Rect1"]
+position = Vector2( 2.38916, -197.844 )
+scale = Vector2( 1.461, 1.52 )
+texture = ExtResource( 1 )
+
+[node name="Rect2" type="RigidBody2D" parent="."]
+position = Vector2( 144.35, -151.275 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Rect2"]
+visible = false
+scale = Vector2( 100, 5 )
+mesh = SubResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rect2"]
+visible = false
+shape = SubResource( 10 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Rect2"]
+node_a = NodePath("..")
+node_b = NodePath("../../Rect3")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="Rect2"]
+position = Vector2( 56, 0 )
+node_a = NodePath("..")
+node_b = NodePath("../../Rect3")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="Rect2"]
+position = Vector2( -53, 0 )
+node_a = NodePath("..")
+node_b = NodePath("../../Rect3")
+
+[node name="Sprite" type="Sprite" parent="Rect2"]
+position = Vector2( 1.5874, 0 )
+scale = Vector2( 1.34995, 0.599999 )
+texture = ExtResource( 3 )
+
 [node name="Rect3" type="RigidBody2D" parent="."]
 position = Vector2( 144.248, -116.295 )
+z_index = -1
 collision_layer = 2
 collision_mask = 2
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Rect3"]
 visible = false
 scale = Vector2( 60, 30 )
-mesh = SubResource( 3 )
+mesh = SubResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rect3"]
-shape = SubResource( 4 )
+shape = SubResource( 12 )
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Rect3"]
 position = Vector2( -0.0850067, -0.0349043 )
@@ -90,124 +213,6 @@ position = Vector2( 6.30676, -0.840912 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
 
-[node name="WheelA" type="RigidBody2D" parent="."]
-position = Vector2( 81.1732, -76.7676 )
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="WheelA"]
-scale = Vector2( 50, 50 )
-mesh = SubResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WheelA"]
-shape = SubResource( 6 )
-
-[node name="Wheeljoint" type="PinJoint2D" parent="WheelA"]
-position = Vector2( 0.205322, 0.348541 )
-node_a = NodePath("..")
-node_b = NodePath("../../Wheelsupport")
-
-[node name="Sprite" type="Sprite" parent="WheelA"]
-position = Vector2( -0.529724, -1.05949 )
-scale = Vector2( 1.2, 1.2 )
-texture = ExtResource( 4 )
-
-[node name="WheelB" type="RigidBody2D" parent="."]
-position = Vector2( 210.173, -76.7676 )
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="WheelB"]
-scale = Vector2( 50, 50 )
-mesh = SubResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WheelB"]
-shape = SubResource( 6 )
-
-[node name="Wheeljoint" type="PinJoint2D" parent="WheelB"]
-position = Vector2( 0.0628662, 0.0770569 )
-node_a = NodePath("..")
-node_b = NodePath("../../Wheelsupport")
-
-[node name="Sprite" type="Sprite" parent="WheelB"]
-position = Vector2( -0.529724, -1.05949 )
-scale = Vector2( 1.2, 1.2 )
-texture = ExtResource( 4 )
-
-[node name="Crowbar" type="RigidBody2D" parent="."]
-position = Vector2( 382.045, -86.3729 )
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Crowbar"]
-scale = Vector2( 10, 20 )
-mesh = SubResource( 7 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Crowbar"]
-shape = SubResource( 8 )
-
-[node name="CrowbarJoint" type="PinJoint2D" parent="Crowbar"]
-position = Vector2( -0.0045166, 0.0185547 )
-node_a = NodePath("..")
-node_b = NodePath("../../Wheelsupport")
-
-[node name="CrowbarJoint2" type="PinJoint2D" parent="Crowbar"]
-position = Vector2( 1.01917, 11.3647 )
-node_a = NodePath("..")
-node_b = NodePath("../../Wheelsupport")
-
-[node name="Rect1" type="RigidBody2D" parent="."]
-position = Vector2( 143.738, -206.127 )
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Rect1"]
-scale = Vector2( 50, 50 )
-mesh = SubResource( 9 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rect1"]
-shape = SubResource( 10 )
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Rect1"]
-node_a = NodePath("..")
-node_b = NodePath("../../Rect2")
-
-[node name="PinJoint2D2" type="PinJoint2D" parent="Rect1"]
-position = Vector2( 40, 0 )
-node_a = NodePath("..")
-node_b = NodePath("../../Rect2")
-
-[node name="PinJoint2D3" type="PinJoint2D" parent="Rect1"]
-position = Vector2( -40, 0 )
-node_a = NodePath("..")
-node_b = NodePath("../../Rect2")
-
-[node name="Sprite" type="Sprite" parent="Rect1"]
-position = Vector2( 2.38916, -197.844 )
-scale = Vector2( 1.461, 1.52 )
-texture = ExtResource( 1 )
-
-[node name="Rect2" type="RigidBody2D" parent="."]
-position = Vector2( 144.35, -151.275 )
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Rect2"]
-scale = Vector2( 100, 5 )
-mesh = SubResource( 11 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rect2"]
-shape = SubResource( 12 )
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Rect2"]
-node_a = NodePath("..")
-node_b = NodePath("../../Rect3")
-
-[node name="PinJoint2D2" type="PinJoint2D" parent="Rect2"]
-position = Vector2( 56, 0 )
-node_a = NodePath("..")
-node_b = NodePath("../../Rect3")
-
-[node name="PinJoint2D3" type="PinJoint2D" parent="Rect2"]
-position = Vector2( -53, 0 )
-node_a = NodePath("..")
-node_b = NodePath("../../Rect3")
-
-[node name="Sprite" type="Sprite" parent="Rect2"]
-position = Vector2( 1.5874, 0 )
-scale = Vector2( 1.34995, 0.599999 )
-texture = ExtResource( 3 )
-
 [node name="Triangle" type="RigidBody2D" parent="."]
 position = Vector2( 143.738, -405.852 )
 collision_layer = 2
@@ -216,6 +221,7 @@ mode = 2
 sleeping = true
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Triangle"]
+position = Vector2( -0.0209198, 200.995 )
 node_a = NodePath("..")
 node_b = NodePath("../../Rect3")
 bias = 0.9

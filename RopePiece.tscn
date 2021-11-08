@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8.05612, 3.94368 )
+
+[node name="Ropepiece" type="RigidBody2D"]
+
+[node name="C" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="J" type="PinJoint2D" parent="."]
+position = Vector2( 6.66817, 0 )
+softness = 0.5
