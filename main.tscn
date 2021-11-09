@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Ground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Raathnew.tscn" type="PackedScene" id=2]
@@ -8,13 +8,16 @@
 [sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 48.8601, 51.3779 )
+extents = Vector2( 53.8857, 48.0466 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 55.3085, 54.1631 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Raathnew" parent="." instance=ExtResource( 2 )]
-position = Vector2( 8.909, -272.615 )
+position = Vector2( 8.909, -37.4177 )
 
 [node name="Ground" parent="." instance=ExtResource( 1 )]
 
@@ -24,10 +27,8 @@ scale = Vector2( 3.00993, 0.710939 )
 current = true
 zoom = Vector2( 2, 2 )
 
-[node name="Rope" parent="." instance=ExtResource( 4 )]
-
 [node name="S" type="StaticBody2D" parent="."]
-position = Vector2( 1003.97, -567.97 )
+position = Vector2( 1174.58, -92.0461 )
 
 [node name="M" type="MeshInstance2D" parent="S"]
 scale = Vector2( 50, 50 )
@@ -38,15 +39,17 @@ shape = SubResource( 2 )
 
 [node name="J" type="PinJoint2D" parent="S"]
 
+[node name="Area2D" type="Area2D" parent="S"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="S/Area2D"]
+shape = SubResource( 3 )
+
 [node name="S2" type="StaticBody2D" parent="."]
-position = Vector2( 806.384, -284.647 )
+position = Vector2( 1177, -571.516 )
 
 [node name="M" type="MeshInstance2D" parent="S2"]
-scale = Vector2( 50, 50 )
+scale = Vector2( 30, 30 )
 mesh = SubResource( 1 )
-
-[node name="C" type="CollisionShape2D" parent="S2"]
-shape = SubResource( 2 )
 
 [node name="J" type="PinJoint2D" parent="S2"]
 
@@ -59,3 +62,7 @@ mesh = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="S3"]
 shape = SubResource( 2 )
+
+[node name="Rope" parent="." instance=ExtResource( 4 )]
+
+[connection signal="input_event" from="S/Area2D" to="." method="_on_Area2D_input_event"]

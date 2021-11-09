@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Ground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rope.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tryRope.gd" type="Script" id=3]
 [ext_resource path="res://S.tscn" type="PackedScene" id=4]
+[ext_resource path="res://try1.gd" type="Script" id=5]
+[ext_resource path="res://R.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="S" parent="." instance=ExtResource( 4 )]
 
@@ -16,3 +19,5 @@ position = Vector2( 499.238, -135.723 )
 
 [node name="Rope" parent="." instance=ExtResource( 2 )]
 script = ExtResource( 3 )
+
+[node name="R" parent="." instance=ExtResource( 6 )]

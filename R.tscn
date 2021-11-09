@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="R" type="RigidBody2D"]
+position = Vector2( 143, -141 )
+
+[node name="C" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="J" type="PinJoint2D" parent="."]
