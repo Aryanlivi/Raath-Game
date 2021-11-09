@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Ground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Raathnew.tscn" type="PackedScene" id=2]
@@ -13,11 +13,19 @@ extents = Vector2( 53.8857, 48.0466 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 55.3085, 54.1631 )
 
+[sub_resource type="RectangleShape2D" id=4]
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Raathnew" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1.78183, -272.615 )
+position = Vector2( -7.19785, -9.95868 )
+
+[node name="lowerbody" parent="Raathnew" index="3"]
+input_pickable = true
+
+[node name="upperbody" parent="Raathnew" index="4"]
+input_pickable = true
 
 [node name="Ground" parent="." instance=ExtResource( 1 )]
 
@@ -44,26 +52,25 @@ shape = SubResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="S/Area2D"]
 shape = SubResource( 3 )
 
-[node name="S2" type="StaticBody2D" parent="."]
+[node name="RopeCursor" type="StaticBody2D" parent="."]
 visible = false
 position = Vector2( 1177, -571.516 )
 
-[node name="M" type="MeshInstance2D" parent="S2"]
+[node name="M" type="MeshInstance2D" parent="RopeCursor"]
 scale = Vector2( 30, 30 )
 mesh = SubResource( 1 )
 
-[node name="J" type="PinJoint2D" parent="S2"]
+[node name="J" type="PinJoint2D" parent="RopeCursor"]
 
-[node name="S3" type="RigidBody2D" parent="."]
-position = Vector2( -336.019, -717.345 )
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="S3"]
-scale = Vector2( 50, 50 )
-mesh = SubResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="S3"]
-shape = SubResource( 2 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RopeCursor"]
+shape = SubResource( 4 )
+disabled = true
 
 [node name="Rope" parent="." instance=ExtResource( 4 )]
 
+[connection signal="input_event" from="Raathnew/Wheelsupport" to="." method="_on_Wheelsupport_input_event"]
+[connection signal="input_event" from="Raathnew/lowerbody" to="." method="_on_lowerbody_input_event"]
+[connection signal="input_event" from="Raathnew/upperbody" to="." method="_on_upperbody_input_event"]
 [connection signal="input_event" from="S/Area2D" to="." method="_on_Area2D_input_event"]
+
+[editable path="Raathnew"]
