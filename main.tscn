@@ -45,6 +45,7 @@ shape = SubResource( 2 )
 shape = SubResource( 3 )
 
 [node name="S2" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2( 1177, -571.516 )
 
 [node name="M" type="MeshInstance2D" parent="S2"]
