@@ -1,5 +1,6 @@
 extends Node2D 
 var RopePiece=preload("res://RopePiece.tscn")
+onready var raath=get_parent().get_node("Raathnew")
 onready var sbody=get_parent().get_node("S")
 onready var sbody2=get_parent().get_node("S2")
 onready var sjoint2=sbody2.get_node("J")
@@ -9,17 +10,18 @@ const piece_size=16
 var pieces=[]
 var joint=null
 var sjoint1=null
+var endpiece=null
 var created_pieces=0
 func spawn(body:PhysicsBody2D,startpos:Vector2,endpos:Vector2):
-	if(created_pieces==0):
-		sjoint1=body.get_node("J")
-		sjoint1.node_a=body.get_path()
-		joint=sjoint1
+	#if(created_pieces==0):
+	sjoint1=body.get_node("J")
+	sjoint1.node_a=body.get_path()
+	joint=sjoint1
 		
 	#Calculate distance to find no of required pieces.
 	#var distance=startpos.distance_to(endpos)
 	#no_of_pieces=round(distance/piece_size)
-	no_of_pieces+=35
+	no_of_pieces+=30
 	#var spawn_angle=(startpos-endpos).angle()-PI/2
 	#starting_joint
 	
@@ -45,16 +47,17 @@ func add_joint(index:int):
 	if(index+1!=no_of_pieces):
 		joint.node_b=pieces[index+1].get_path()
 
-func follow_mouse(endpos:Vector2):
-	var endpiece=pieces[pieces.size()-1]
-	endpiece.global_position=lerp(endpiece.global_position,endpos,0.5)
-
 func attach_rope(body:PhysicsBody2D,endjoint:PinJoint2D):
-	var endpiece=pieces[pieces.size()-1]
+	endpiece=pieces[pieces.size()-1]
 	endpiece.global_position=sbody2.global_position-offset
 	endjoint.node_a=body.get_path()
 	endjoint.node_b=endpiece.get_path()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	
+func attach_to_raath():
+	var upperbody=raath.get_node("upperbody")
+	var joint=endpiece.get_node("J")
+	joint.node_b=upperbody.get_path()
+	sjoint2.node_b="../"
 func _process(delta):
 	var endpos=get_global_mouse_position()
 	var magnitude=pow(endpos.x,2)+pow(endpos.y,2)

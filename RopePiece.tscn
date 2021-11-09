@@ -1,18 +1,19 @@
 [gd_scene load_steps=3 format=2]
 
-[sub_resource type="PhysicsMaterial" id=2]
+[sub_resource type="PhysicsMaterial" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8.05612, 3.94368 )
 
 [node name="Ropepiece" type="RigidBody2D"]
 z_index = 1
 collision_layer = 0
 collision_mask = 0
-physics_material_override = SubResource( 2 )
+mass = 0.01
+physics_material_override = SubResource( 3 )
 
 [node name="C" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="J" type="PinJoint2D" parent="."]
 position = Vector2( 6.66817, 0 )

@@ -11,7 +11,10 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
-			pass
+			if event.pressed and Game.gamestate==Game.state.rope_state :
+				Game.gamestate=Game.state.rope_attach
+				Game.currentRope.attach_to_raath()
+				print("attached")
 		""""
 		if event.pressed:
 				Game.gamestate=Game.state.rope_state

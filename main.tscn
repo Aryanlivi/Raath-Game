@@ -17,7 +17,7 @@ extents = Vector2( 55.3085, 54.1631 )
 script = ExtResource( 3 )
 
 [node name="Raathnew" parent="." instance=ExtResource( 2 )]
-position = Vector2( 8.909, -37.4177 )
+position = Vector2( 1.78183, -272.615 )
 
 [node name="Ground" parent="." instance=ExtResource( 1 )]
 
@@ -28,7 +28,7 @@ current = true
 zoom = Vector2( 2, 2 )
 
 [node name="S" type="StaticBody2D" parent="."]
-position = Vector2( 1174.58, -92.0461 )
+position = Vector2( 625.786, -99.1733 )
 
 [node name="M" type="MeshInstance2D" parent="S"]
 scale = Vector2( 50, 50 )
