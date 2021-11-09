@@ -2,6 +2,7 @@ extends Node2D
 var RopePiece=preload("res://RopePiece.tscn")
 onready var raath=get_parent().get_node("Raathnew")
 onready var sbody=get_parent().get_node("S")
+var sjoint1=null
 onready var RopeCursor=get_parent().get_node("RopeCursor")
 onready var RopeCursorJ=RopeCursor.get_node("J")
 var no_of_pieces=0
@@ -9,7 +10,6 @@ const offset=Vector2(8,0)
 const piece_size=16
 var pieces=[]
 var joint=null
-var sjoint1=null
 var endpiece=null
 func spawn(body:PhysicsBody2D):
 	sjoint1=body.get_node("J")

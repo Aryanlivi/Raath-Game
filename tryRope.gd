@@ -51,10 +51,7 @@ func init_rope(joint:PinJoint2D):
 	rope_piece.global_position=joint.global_position+offset
 	add_child(rope_piece)
 	pieces.append(rope_piece);
-
-func update_rope(rbody_pos):
-	pass
-	
+		
 func add_joint(index:int):
 	var joint=pieces[index].get_node("J")
 	joint.node_a=pieces[index].get_path()
