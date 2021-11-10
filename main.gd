@@ -10,7 +10,7 @@ func _input(event):
 		if event.button_index == BUTTON_LEFT:
 			if !event.pressed and Game.gamestate==Game.state.rope_state and Game.raath_part_to_attach!=null :
 				Game.currentRope.attach_to_raath()
-				Game.gamestate=Game.state.rope_attached
+				Game.gamestate=Game.state.pulling_raath
 				Game.raath_part_to_attach=null
 	
 		
@@ -28,16 +28,6 @@ func _on_upperbody_input_event(viewport, event, shape_idx):
 	if Input.is_action_pressed("click"):
 		var body=get_node("Raathnew/upperbody")
 		Game.raath_part_to_attach=body
-
-"""
-func _on_Man_input_event(viewport, event, shape_idx):
-	if Input.is_action_pressed("click"):
-		Game.currentRope=Rope.instance()
-		add_child(Game.currentRope)
-		Game.currentRope.spawn(man)
-		Game.gamestate=Game.state.rope_state
-
-"""
 
 func _on_GOM_input_event(viewport, event, shape_idx):
 	if Input.is_action_pressed("click"):

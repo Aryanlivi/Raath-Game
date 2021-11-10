@@ -13,7 +13,7 @@ func _ready():
 
 func _process(delta):
 	t+=delta
-	pathfollow.offset=t*20
+	pathfollow.offset=t*100
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
