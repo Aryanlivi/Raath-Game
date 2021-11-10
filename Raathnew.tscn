@@ -93,7 +93,7 @@ texture = ExtResource( 5 )
 
 [node name="WheelA" type="RigidBody2D" parent="."]
 position = Vector2( 81.1732, -76.7676 )
-mass = 4.0
+mass = 50.0
 physics_material_override = SubResource( 2 )
 
 [node name="Wheeljoint" type="PinJoint2D" parent="WheelA"]
@@ -115,7 +115,7 @@ texture = ExtResource( 2 )
 
 [node name="WheelB" type="RigidBody2D" parent="."]
 position = Vector2( 210.173, -76.7676 )
-mass = 4.0
+mass = 50.0
 
 [node name="Wheeljoint" type="PinJoint2D" parent="WheelB"]
 position = Vector2( 0.0628662, 0.0770569 )
@@ -139,7 +139,7 @@ position = Vector2( 144, -112 )
 z_index = -1
 collision_layer = 2
 collision_mask = 2
-mass = 5.0
+mass = 20.0
 physics_material_override = SubResource( 5 )
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="lowerbody"]
@@ -176,7 +176,7 @@ texture = ExtResource( 1 )
 
 [node name="upperbody" type="RigidBody2D" parent="."]
 position = Vector2( 152, -312 )
-mass = 5.0
+mass = 20.0
 physics_material_override = SubResource( 7 )
 
 [node name="PinJoint2D" type="PinJoint2D" parent="upperbody"]

@@ -1,8 +1,8 @@
 extends Node2D 
 var RopePiece=preload("res://RopePiece.tscn")
 onready var raath=get_parent().get_node("Raathnew")
-onready var sbody=get_parent().get_node("S")
-var sjoint1=null
+#onready var sbody=get_parent().get_node("S")
+var man_joint=null
 onready var RopeCursor=get_parent().get_node("RopeCursor")
 onready var RopeCursorJ=RopeCursor.get_node("J")
 var no_of_pieces=0
@@ -12,9 +12,9 @@ var pieces=[]
 var joint=null
 var endpiece=null
 func spawn(body:PhysicsBody2D):
-	sjoint1=body.get_node("J")
-	sjoint1.node_a=body.get_path()
-	joint=sjoint1
+	man_joint=body.get_node("J")
+	man_joint.node_a=body.get_path()
+	joint=man_joint
 	#Calculate distance to find no of required pieces.
 	#var distance=startpos.distance_to(endpos)
 	#no_of_pieces=round(distance/piece_size)
@@ -25,7 +25,7 @@ func spawn(body:PhysicsBody2D):
 		joint=pieces[i].get_node("J")
 	for i in range(0,no_of_pieces):
 		add_joint(i)
-	sjoint1.node_b=pieces[0].get_path()
+	man_joint.node_b=pieces[0].get_path()
 	attach_rope(RopeCursor,RopeCursorJ)
 	
 func init_rope_piece(joint:PinJoint2D):

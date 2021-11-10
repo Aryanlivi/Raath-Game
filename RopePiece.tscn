@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[sub_resource type="PhysicsMaterial" id=3]
+[sub_resource type="PhysicsMaterial" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8.05612, 3.94368 )
@@ -9,8 +9,8 @@ extents = Vector2( 8.05612, 3.94368 )
 z_index = 1
 collision_layer = 0
 collision_mask = 0
-mass = 0.01
-physics_material_override = SubResource( 3 )
+mass = 0.05
+physics_material_override = SubResource( 1 )
 
 [node name="C" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
