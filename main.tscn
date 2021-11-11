@@ -1,11 +1,18 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Ground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Raathnew.tscn" type="PackedScene" id=2]
 [ext_resource path="res://main.gd" type="Script" id=3]
 [ext_resource path="res://Rope.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Terrain.gd" type="Script" id=5]
 [ext_resource path="res://Path2D.gd" type="Script" id=6]
 [ext_resource path="res://Man.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Curve2D" id=7]
+bake_interval = 20.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 3.55618, 6.32623, 0, 0, 0, 0, -1.7832, 598.995, 0, 0, 0, 0, 2497.04, 593.656, 0, 0, 0, 0, 2499.71, 8.99591, 0, 0, 0, 0, 2503.69, 5.40491, 727.355, -116.736, -727.355, 116.736, 1818.99, 5.40491, 273.881, -197.553, -273.881, 197.553, 831.226, 9.89478, 0, 0, 0, 0, 0.603722, 0.915039 )
+}
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -16,7 +23,7 @@ extents = Vector2( 53.8857, 48.0466 )
 
 [sub_resource type="Curve2D" id=4]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 674.59, -44.3237, 0, 0, 0, 0, 1178.84, -46.9964 )
+"points": PoolVector2Array( 0, 0, 0, 0, 674.59, -44.3237, -122, 116, 122, -116, 927.425, -209.966, -47, 5, 47, -5, 1535.43, -81.966 )
 }
 
 [sub_resource type="RectangleShape2D" id=5]
@@ -25,8 +32,22 @@ extents = Vector2( 56.4314, 41.8364 )
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="Terrain" type="StaticBody2D" parent="."]
+position = Vector2( -64.5542, -413.144 )
+script = ExtResource( 5 )
+
+[node name="Poly" type="Polygon2D" parent="Terrain"]
+antialiased = true
+
+[node name="CPoly" type="CollisionPolygon2D" parent="Terrain"]
+visible = false
+
+[node name="Path" type="Path2D" parent="Terrain"]
+position = Vector2( 39.598, 14.1421 )
+curve = SubResource( 7 )
+
 [node name="Raathnew" parent="." instance=ExtResource( 2 )]
-position = Vector2( 19.2887, -4.66135 )
+position = Vector2( -35.448, -364.155 )
 
 [node name="lowerbody" parent="Raathnew" index="3"]
 input_pickable = true
@@ -49,10 +70,11 @@ drag_margin_left = 0.4
 drag_margin_right = 0.4
 
 [node name="Ground" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3238.51, -851.415 )
 z_index = 1
 
 [node name="Ground2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1179.48, -12.2003 )
+position = Vector2( 3269.95, -548.692 )
 z_index = 1
 
 [node name="S" type="StaticBody2D" parent="."]
@@ -85,15 +107,17 @@ disabled = true
 z_index = 1
 
 [node name="Path2D" type="Path2D" parent="."]
+position = Vector2( 732.363, -387.544 )
 curve = SubResource( 4 )
 script = ExtResource( 6 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 674.59, -44.3237 )
-rotation = -0.0053002
+rotation = -0.379193
 loop = false
 
 [node name="GOM" type="KinematicBody2D" parent="Path2D/PathFollow2D"]
+rotation = 0.184864
 input_pickable = true
 
 [node name="C" type="CollisionShape2D" parent="Path2D/PathFollow2D/GOM"]
@@ -116,8 +140,6 @@ position = Vector2( -85.3044, -27.4276 )
 
 [node name="Man5" parent="Path2D/PathFollow2D/GOM" instance=ExtResource( 7 )]
 position = Vector2( -109.65, -28.3514 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [connection signal="input_event" from="Raathnew/Wheelsupport" to="." method="_on_Wheelsupport_input_event"]
 [connection signal="input_event" from="Raathnew/lowerbody" to="." method="_on_lowerbody_input_event"]
