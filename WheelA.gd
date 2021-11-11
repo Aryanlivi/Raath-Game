@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends RigidBody2D
 
 
 # Declare member variables here. Examples:
@@ -8,15 +8,14 @@ extends StaticBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var curve=$Path.curve
-	var polygon=curve.get_baked_points()
-	var p1=curve.get_point_in(2)
-	var p2=curve.get_point_in(4)
-	$CPoly.polygon=polygon
-	$Poly.polygon=polygon
-	
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_WheelA_input_event(viewport, event, shape_idx):
+	if Input.is_action_pressed("click"):
+		Game.raath_part_to_attach=self

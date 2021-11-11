@@ -10,7 +10,7 @@ var pieces=[]
 var joint=null
 var endpiece=null
 var man_joint=[]
-func spawn(body:Array):
+func spawn_rope(body:Array):
 	var No_of_men=body.size()
 	no_of_pieces+=30
 	for i in range(0,no_of_pieces):

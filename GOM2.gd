@@ -1,13 +1,15 @@
-extends Path2D
-var t=0
+extends KinematicBody2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	pass # Replace with function body.
 
-func _process(delta):
-	if(Game.gamestate==Game.state.PULL):
-		t+=delta
-		$PathFollow2D.offset=t*100
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

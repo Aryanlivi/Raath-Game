@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rect3.png-aed7c44369391f830b89c6b75757241d.stex"
+path="res://.import/rect3.png-649736ddfa0c3646a77b3077dfb2e1eb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rect3.png"
-dest_files=[ "res://.import/rect3.png-aed7c44369391f830b89c6b75757241d.stex" ]
+source_file="res://assets/rect3.png"
+dest_files=[ "res://.import/rect3.png-649736ddfa0c3646a77b3077dfb2e1eb.stex" ]
 
 [params]
 

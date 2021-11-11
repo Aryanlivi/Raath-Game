@@ -1,12 +1,12 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Ground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Raathnew.tscn" type="PackedScene" id=2]
 [ext_resource path="res://main.gd" type="Script" id=3]
 [ext_resource path="res://Rope.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Terrain.gd" type="Script" id=5]
-[ext_resource path="res://Path2D.gd" type="Script" id=6]
+[ext_resource path="res://GOM.gd" type="Script" id=6]
 [ext_resource path="res://Man.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Man_Path.gd" type="Script" id=8]
 
 [sub_resource type="Curve2D" id=7]
 bake_interval = 20.0
@@ -16,14 +16,11 @@ _data = {
 
 [sub_resource type="CubeMesh" id=1]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 53.8857, 48.0466 )
-
 [sub_resource type="RectangleShape2D" id=3]
 
-[sub_resource type="Curve2D" id=4]
+[sub_resource type="Curve2D" id=9]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 674.59, -44.3237, -122, 116, 122, -116, 927.425, -209.966, -47, 5, 47, -5, 1535.43, -81.966 )
+"points": PoolVector2Array( 0, 0, 0, 0, 2.401, 7.23654, 0, 0, 0, 0, 27.6279, 0.509369, 0, 0, 0, 0, 228.582, -98.9011, 0, 0, 0, 0, 306.082, -116.901, 0, 0, 0, 0, 381.582, -107.401, 0, 0, 0, 0, 565.063, -55.574, 0, 0, 0, 0, 699.197, -32.0023, 0, 0, 0, 0, 885.526, -30.8798, 0, 0, 0, 0, 1166.29, -58.4512, 0, 0, 0, 0, 1355.28, -88.6893 )
 }
 
 [sub_resource type="RectangleShape2D" id=5]
@@ -69,26 +66,6 @@ drag_margin_v_enabled = true
 drag_margin_left = 0.4
 drag_margin_right = 0.4
 
-[node name="Ground" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3238.51, -851.415 )
-z_index = 1
-
-[node name="Ground2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3269.95, -548.692 )
-z_index = 1
-
-[node name="S" type="StaticBody2D" parent="."]
-position = Vector2( 1553.88, -797.569 )
-
-[node name="M" type="MeshInstance2D" parent="S"]
-scale = Vector2( 50, 50 )
-mesh = SubResource( 1 )
-
-[node name="C" type="CollisionShape2D" parent="S"]
-shape = SubResource( 2 )
-
-[node name="J" type="PinJoint2D" parent="S"]
-
 [node name="RopeCursor" type="StaticBody2D" parent="."]
 visible = false
 position = Vector2( 1094.59, -608.516 )
@@ -106,44 +83,125 @@ disabled = true
 [node name="Rope" parent="." instance=ExtResource( 4 )]
 z_index = 1
 
-[node name="Path2D" type="Path2D" parent="."]
-position = Vector2( 732.363, -387.544 )
-curve = SubResource( 4 )
-script = ExtResource( 6 )
+[node name="Man_Path" type="Path2D" parent="."]
+position = Vector2( 668.918, -337.599 )
+curve = SubResource( 9 )
+script = ExtResource( 8 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 674.59, -44.3237 )
-rotation = -0.379193
+[node name="PathFollow2D" type="PathFollow2D" parent="Man_Path"]
+position = Vector2( 2.401, 7.23654 )
+rotation = -0.260603
 loop = false
 
-[node name="GOM" type="KinematicBody2D" parent="Path2D/PathFollow2D"]
-rotation = 0.184864
+[node name="GOM1" type="KinematicBody2D" parent="Man_Path/PathFollow2D"]
+position = Vector2( -2.35181, 2.65857 )
 input_pickable = true
+script = ExtResource( 6 )
 
-[node name="C" type="CollisionShape2D" parent="Path2D/PathFollow2D/GOM"]
+[node name="C" type="CollisionShape2D" parent="Man_Path/PathFollow2D/GOM1"]
 visible = false
 position = Vector2( -81.8078, -21.7389 )
 rotation = 0.0292063
 shape = SubResource( 5 )
 
-[node name="Man1" parent="Path2D/PathFollow2D/GOM" instance=ExtResource( 7 )]
+[node name="Man1" parent="Man_Path/PathFollow2D/GOM1" instance=ExtResource( 7 )]
 position = Vector2( -33.2807, -25.2598 )
 
-[node name="Man2" parent="Path2D/PathFollow2D/GOM" instance=ExtResource( 7 )]
+[node name="Man2" parent="Man_Path/PathFollow2D/GOM1" instance=ExtResource( 7 )]
 position = Vector2( -39.1913, -25.2832 )
 
-[node name="Man3" parent="Path2D/PathFollow2D/GOM" instance=ExtResource( 7 )]
+[node name="Man3" parent="Man_Path/PathFollow2D/GOM1" instance=ExtResource( 7 )]
 position = Vector2( -69.5577, -27.3381 )
 
-[node name="Man4" parent="Path2D/PathFollow2D/GOM" instance=ExtResource( 7 )]
+[node name="Man4" parent="Man_Path/PathFollow2D/GOM1" instance=ExtResource( 7 )]
 position = Vector2( -85.3044, -27.4276 )
 
-[node name="Man5" parent="Path2D/PathFollow2D/GOM" instance=ExtResource( 7 )]
+[node name="Man5" parent="Man_Path/PathFollow2D/GOM1" instance=ExtResource( 7 )]
 position = Vector2( -109.65, -28.3514 )
 
-[connection signal="input_event" from="Raathnew/Wheelsupport" to="." method="_on_Wheelsupport_input_event"]
-[connection signal="input_event" from="Raathnew/lowerbody" to="." method="_on_lowerbody_input_event"]
-[connection signal="input_event" from="Raathnew/upperbody" to="." method="_on_upperbody_input_event"]
-[connection signal="input_event" from="Path2D/PathFollow2D/GOM" to="." method="_on_GOM_input_event"]
+[node name="GOM2" type="KinematicBody2D" parent="Man_Path/PathFollow2D"]
+position = Vector2( 195.1, 7.6691 )
+input_pickable = true
+script = ExtResource( 6 )
+
+[node name="C" type="CollisionShape2D" parent="Man_Path/PathFollow2D/GOM2"]
+visible = false
+position = Vector2( -81.8078, -21.7389 )
+rotation = 0.0292063
+shape = SubResource( 5 )
+
+[node name="Man1" parent="Man_Path/PathFollow2D/GOM2" instance=ExtResource( 7 )]
+position = Vector2( -33.2807, -25.2598 )
+
+[node name="Man2" parent="Man_Path/PathFollow2D/GOM2" instance=ExtResource( 7 )]
+position = Vector2( -39.1913, -25.2832 )
+
+[node name="Man3" parent="Man_Path/PathFollow2D/GOM2" instance=ExtResource( 7 )]
+position = Vector2( -69.5577, -27.3381 )
+
+[node name="Man4" parent="Man_Path/PathFollow2D/GOM2" instance=ExtResource( 7 )]
+position = Vector2( -85.3044, -27.4276 )
+
+[node name="Man5" parent="Man_Path/PathFollow2D/GOM2" instance=ExtResource( 7 )]
+position = Vector2( -109.65, -28.3514 )
+
+[node name="GOM3" type="KinematicBody2D" parent="Man_Path/PathFollow2D"]
+position = Vector2( -215.321, -49.4303 )
+rotation = 0.336849
+input_pickable = true
+script = ExtResource( 6 )
+
+[node name="C" type="CollisionShape2D" parent="Man_Path/PathFollow2D/GOM3"]
+visible = false
+position = Vector2( -81.8078, -21.7389 )
+rotation = 0.0292063
+shape = SubResource( 5 )
+
+[node name="Man1" parent="Man_Path/PathFollow2D/GOM3" instance=ExtResource( 7 )]
+position = Vector2( -33.2807, -25.2598 )
+
+[node name="Man2" parent="Man_Path/PathFollow2D/GOM3" instance=ExtResource( 7 )]
+position = Vector2( -39.1913, -25.2832 )
+
+[node name="Man3" parent="Man_Path/PathFollow2D/GOM3" instance=ExtResource( 7 )]
+position = Vector2( -69.5577, -27.3381 )
+
+[node name="Man4" parent="Man_Path/PathFollow2D/GOM3" instance=ExtResource( 7 )]
+position = Vector2( -85.3044, -27.4276 )
+
+[node name="Man5" parent="Man_Path/PathFollow2D/GOM3" instance=ExtResource( 7 )]
+position = Vector2( -109.65, -28.3514 )
+
+[node name="GOM4" type="KinematicBody2D" parent="Man_Path/PathFollow2D"]
+position = Vector2( 386.422, -43.3178 )
+rotation = 0.225147
+input_pickable = true
+script = ExtResource( 6 )
+
+[node name="C" type="CollisionShape2D" parent="Man_Path/PathFollow2D/GOM4"]
+visible = false
+position = Vector2( -81.8078, -21.7389 )
+rotation = 0.0292063
+shape = SubResource( 5 )
+
+[node name="Man1" parent="Man_Path/PathFollow2D/GOM4" instance=ExtResource( 7 )]
+position = Vector2( -33.2807, -25.2598 )
+
+[node name="Man2" parent="Man_Path/PathFollow2D/GOM4" instance=ExtResource( 7 )]
+position = Vector2( -39.1913, -25.2832 )
+
+[node name="Man3" parent="Man_Path/PathFollow2D/GOM4" instance=ExtResource( 7 )]
+position = Vector2( -69.5577, -27.3381 )
+
+[node name="Man4" parent="Man_Path/PathFollow2D/GOM4" instance=ExtResource( 7 )]
+position = Vector2( -85.3044, -27.4276 )
+
+[node name="Man5" parent="Man_Path/PathFollow2D/GOM4" instance=ExtResource( 7 )]
+position = Vector2( -109.65, -28.3514 )
+
+[connection signal="input_event" from="Man_Path/PathFollow2D/GOM1" to="Man_Path/PathFollow2D/GOM1" method="_on_GOM_input_event"]
+[connection signal="input_event" from="Man_Path/PathFollow2D/GOM2" to="Man_Path/PathFollow2D/GOM2" method="_on_GOM_input_event"]
+[connection signal="input_event" from="Man_Path/PathFollow2D/GOM3" to="Man_Path/PathFollow2D/GOM3" method="_on_GOM_input_event"]
+[connection signal="input_event" from="Man_Path/PathFollow2D/GOM4" to="Man_Path/PathFollow2D/GOM4" method="_on_GOM_input_event"]
 
 [editable path="Raathnew"]
