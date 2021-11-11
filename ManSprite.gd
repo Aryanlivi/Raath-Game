@@ -6,3 +6,5 @@ func _process(delta):
 	if(pathfollow.unit_offset==1):
 		self.frame=0
 		self.playing=false
+	if(Game.gamestate==Game.state.pulling_raath):
+		self.playing=true

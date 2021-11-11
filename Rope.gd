@@ -1,26 +1,21 @@
 extends Node2D 
 var RopePiece=preload("res://RopePiece.tscn")
 onready var raath=get_parent().get_node("Raathnew")
-#onready var sbody=get_parent().get_node("S")
-#var man_joint=null
 onready var RopeCursor=get_parent().get_node("RopeCursor")
 onready var RopeCursorJ=RopeCursor.get_node("J")
 var no_of_pieces=0
-const offset=Vector2(8,0)
-const piece_size=16
+const offset=Vector2(0,0)
+#const piece_size=16
 var pieces=[]
 var joint=null
 var endpiece=null
 var man_joint=[]
 func spawn(body:Array):
 	var No_of_men=body.size()
-	#Calculate distance to find no of required pieces.
-	#var distance=startpos.distance_to(endpos)
-	#no_of_pieces=round(distance/piece_size)
 	no_of_pieces+=30
-	
 	for i in range(0,no_of_pieces):
 		if(i<No_of_men):
+			##give node_a
 			man_joint.append(body[i].get_node("J"))
 			man_joint[i].node_a=body[i].get_path()
 			joint=man_joint[i]
@@ -28,11 +23,20 @@ func spawn(body:Array):
 		joint=pieces[i].get_node("J")
 	for i in range(0,no_of_pieces):
 		add_joint(i)
-		
-	for i in range(0,No_of_men):
-		man_joint[i].node_b=pieces[i].get_path()
+	attach_to_man(No_of_men)
 	attach_rope(RopeCursor,RopeCursorJ)
+
+func calculate_distance():
+	#Calculate distance to find no of required pieces.
+	#var distance=startpos.distance_to(endpos)
+	#no_of_pieces=round(distance/piece_size)
+	#return no_of_pieces
+	pass
 	
+func attach_to_man(size:int):
+	for i in range(0,size):
+		man_joint[i].node_b=pieces[i].get_path()
+		
 func init_rope_piece(joint:PinJoint2D):
 	var rope_piece=RopePiece.instance()
 	rope_piece.global_position=joint.global_position+offset

@@ -103,18 +103,21 @@ rotation = 0.0292063
 shape = SubResource( 5 )
 
 [node name="Man1" parent="Path2D/PathFollow2D/GOM" instance=ExtResource( 7 )]
+position = Vector2( -33.2807, -25.2598 )
 
 [node name="Man2" parent="Path2D/PathFollow2D/GOM" instance=ExtResource( 7 )]
-position = Vector2( -56.1732, -26.789 )
+position = Vector2( -39.1913, -25.2832 )
 
 [node name="Man3" parent="Path2D/PathFollow2D/GOM" instance=ExtResource( 7 )]
-position = Vector2( -76.1647, -27.3731 )
+position = Vector2( -69.5577, -27.3381 )
 
 [node name="Man4" parent="Path2D/PathFollow2D/GOM" instance=ExtResource( 7 )]
-position = Vector2( -96.1563, -27.9571 )
+position = Vector2( -85.3044, -27.4276 )
 
 [node name="Man5" parent="Path2D/PathFollow2D/GOM" instance=ExtResource( 7 )]
 position = Vector2( -109.65, -28.3514 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [connection signal="input_event" from="Raathnew/Wheelsupport" to="." method="_on_Wheelsupport_input_event"]
 [connection signal="input_event" from="Raathnew/lowerbody" to="." method="_on_lowerbody_input_event"]

@@ -3,7 +3,6 @@ onready var sbody=get_node("S")
 onready var GOM=get_node("Path2D/PathFollow2D/GOM")
 var No_of_men=5
 var man=[]
-var mansprite=[]
 var Rope=preload("res://Rope.tscn")
 
 func _input(event):
@@ -33,15 +32,10 @@ func _on_GOM_input_event(viewport, event, shape_idx):
 	if Input.is_action_pressed("click"):
 		for idx in range(0,No_of_men):
 			var val=GOM.get_node("Man"+str(idx+1))
-			var valsprite=val.get_node("ManSprite")
 			man.append(val)
-			print(valsprite)
-			mansprite.append(valsprite)
 		Game.currentRope=Rope.instance()
 		add_child(Game.currentRope)
 		Game.currentRope.spawn(man)
 		Game.gamestate=Game.state.rope_state
-func _process(delta):
-	if(Game.gamestate==Game.state.pulling_raath):
-		for i in range(0,mansprite.size()):
-			mansprite[i].playing=true
+		
+
