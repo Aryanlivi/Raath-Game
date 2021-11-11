@@ -53,7 +53,6 @@ func attach_rope(body:PhysicsBody2D,endjoint:PinJoint2D):
 	
 func attach_to_raath():
 	var joint=endpiece.get_node("J")
-	print(Game.raath_part_to_attach)
 	joint.node_b=Game.raath_part_to_attach.get_path()
 	RopeCursorJ.node_b="../"
 	
