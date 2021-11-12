@@ -8,17 +8,17 @@
 [ext_resource path="res://Man.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Man_Path.gd" type="Script" id=8]
 
-[sub_resource type="Curve2D" id=7]
+[sub_resource type="Curve2D" id=1]
 bake_interval = 20.0
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 3.55618, 6.32623, 0, 0, 0, 0, -1.7832, 598.995, 0, 0, 0, 0, 2497.04, 593.656, 0, 0, 0, 0, 2499.71, 8.99591, 0, 0, 0, 0, 2503.69, 5.40491, 727.355, -116.736, -727.355, 116.736, 1818.99, 5.40491, 273.881, -197.553, -273.881, 197.553, 831.226, 9.89478, 0, 0, 0, 0, 0.603722, 0.915039 )
 }
 
-[sub_resource type="CubeMesh" id=1]
+[sub_resource type="CubeMesh" id=2]
 
 [sub_resource type="RectangleShape2D" id=3]
 
-[sub_resource type="Curve2D" id=9]
+[sub_resource type="Curve2D" id=4]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 2.401, 7.23654, 0, 0, 0, 0, 27.6279, 0.509369, 0, 0, 0, 0, 228.582, -98.9011, 0, 0, 0, 0, 306.082, -116.901, 0, 0, 0, 0, 381.582, -107.401, 0, 0, 0, 0, 565.063, -55.574, 0, 0, 0, 0, 699.197, -32.0023, 0, 0, 0, 0, 885.526, -30.8798, 0, 0, 0, 0, 1166.29, -58.4512, 0, 0, 0, 0, 1355.28, -88.6893 )
 }
@@ -41,10 +41,11 @@ visible = false
 
 [node name="Path" type="Path2D" parent="Terrain"]
 position = Vector2( 39.598, 14.1421 )
-curve = SubResource( 7 )
+curve = SubResource( 1 )
 
 [node name="Raathnew" parent="." instance=ExtResource( 2 )]
 position = Vector2( -35.448, -364.155 )
+rotation = 0.225147
 
 [node name="lowerbody" parent="Raathnew" index="3"]
 input_pickable = true
@@ -72,7 +73,7 @@ position = Vector2( 1094.59, -608.516 )
 
 [node name="M" type="MeshInstance2D" parent="RopeCursor"]
 scale = Vector2( 30, 30 )
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 
 [node name="J" type="PinJoint2D" parent="RopeCursor"]
 
@@ -85,7 +86,7 @@ z_index = 1
 
 [node name="Man_Path" type="Path2D" parent="."]
 position = Vector2( 668.918, -337.599 )
-curve = SubResource( 9 )
+curve = SubResource( 4 )
 script = ExtResource( 8 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Man_Path"]
@@ -94,7 +95,7 @@ rotation = -0.260603
 loop = false
 
 [node name="GOM1" type="KinematicBody2D" parent="Man_Path/PathFollow2D"]
-position = Vector2( -2.35181, 2.65857 )
+position = Vector2( -87.9741, -13.6544 )
 input_pickable = true
 script = ExtResource( 6 )
 
@@ -120,7 +121,7 @@ position = Vector2( -85.3044, -27.4276 )
 position = Vector2( -109.65, -28.3514 )
 
 [node name="GOM2" type="KinematicBody2D" parent="Man_Path/PathFollow2D"]
-position = Vector2( 195.1, 7.6691 )
+position = Vector2( 92.1908, 2.39377 )
 input_pickable = true
 script = ExtResource( 6 )
 
@@ -146,8 +147,7 @@ position = Vector2( -85.3044, -27.4276 )
 position = Vector2( -109.65, -28.3514 )
 
 [node name="GOM3" type="KinematicBody2D" parent="Man_Path/PathFollow2D"]
-position = Vector2( -215.321, -49.4303 )
-rotation = 0.336849
+position = Vector2( 265.787, 4.54028 )
 input_pickable = true
 script = ExtResource( 6 )
 
@@ -173,7 +173,7 @@ position = Vector2( -85.3044, -27.4276 )
 position = Vector2( -109.65, -28.3514 )
 
 [node name="GOM4" type="KinematicBody2D" parent="Man_Path/PathFollow2D"]
-position = Vector2( 386.422, -43.3178 )
+position = Vector2( 405.576, -36.9062 )
 rotation = 0.225147
 input_pickable = true
 script = ExtResource( 6 )
