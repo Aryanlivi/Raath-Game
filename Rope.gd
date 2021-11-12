@@ -3,7 +3,6 @@ var RopePiece=preload("res://RopePiece.tscn")
 onready var RopeCursor=get_parent().get_node("RopeCursor")
 onready var RopeCursorJ=RopeCursor.get_node("J")
 var no_of_pieces=0
-const offset=Vector2(0,0)
 #const piece_size=16
 var pieces=[]
 var joint=null
@@ -38,7 +37,7 @@ func attach_to_man(size:int):
 		
 func init_rope_piece(joint:PinJoint2D):
 	var rope_piece=RopePiece.instance()
-	rope_piece.global_position=joint.global_position+offset
+	rope_piece.global_position=joint.global_position
 	add_child(rope_piece)
 	pieces.append(rope_piece);
 
@@ -50,7 +49,7 @@ func add_joint(index:int):
 
 func attach_rope(body:PhysicsBody2D,endjoint:PinJoint2D):
 	endpiece=pieces[pieces.size()-1]
-	endpiece.global_position=body.global_position-offset
+	endpiece.global_position=body.global_position
 	endjoint.node_a=body.get_path()
 	endjoint.node_b=endpiece.get_path()
 	
