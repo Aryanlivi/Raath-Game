@@ -15,9 +15,9 @@ func _input(event):
 				#updates number of unused groups. Activates PULL state as value soon as it becomes 0
 				Game.IdleGroup-=1
 
-func create_rope(group_name:String):
+func create_rope(path):
 	#get path to the group that is emmiting event.
-	var path=("Man_Path/PathFollow2D/"+group_name)
+	#var path=("Man_Path/PathFollow2D/"+group_name)
 	#get path to the group
 	var GOM=get_node(path)
 	#create an array of man so that the first few rope pieces will stay connected to man.
@@ -38,7 +38,7 @@ func create_rope(group_name:String):
 	
 func _process(delta):
 	if(Game.gamestate==Game.state.CREATE):
-		create_rope(Game.gom_id)
+		create_rope(Game.gom_path)
 	if(Game.IdleGroup==0):
 		Game.gamestate=Game.state.PULL
 	

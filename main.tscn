@@ -1,18 +1,16 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Raath.gd" type="Script" id=1]
 [ext_resource path="res://Raathnew.tscn" type="PackedScene" id=2]
 [ext_resource path="res://main.gd" type="Script" id=3]
 [ext_resource path="res://Rope.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Terrain.gd" type="Script" id=5]
-[ext_resource path="res://GOM.gd" type="Script" id=6]
-[ext_resource path="res://Man.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ManPathfollow.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Man_Path.gd" type="Script" id=8]
 [ext_resource path="res://assets/Dhime Baja.mp3" type="AudioStream" id=9]
 [ext_resource path="res://DhimeBaja.gd" type="Script" id=10]
 
 [sub_resource type="Curve2D" id=1]
-bake_interval = 20.0
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 3.55618, 6.32623, 0, 0, 0, 0, -1.7832, 598.995, 0, 0, 0, 0, 2497.04, 593.656, 0, 0, 0, 0, 2499.71, 8.99591, 0, 0, 0, 0, 2503.69, 5.40491, 727.355, -116.736, -727.355, 116.736, 1818.99, 5.40491, 273.881, -197.553, -273.881, 197.553, 831.226, 9.89478, 0, 0, 0, 0, 0.603722, 0.915039 )
 }
@@ -25,9 +23,6 @@ _data = {
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 2.401, 7.23654, 0, 0, 0, 0, 27.6279, 0.509369, 0, 0, 0, 0, 228.582, -98.9011, 0, 0, 0, 0, 306.082, -116.901, 0, 0, 0, 0, 381.582, -107.401, 0, 0, 0, 0, 565.063, -55.574, 0, 0, 0, 0, 699.197, -32.0023, 0, 0, 0, 0, 885.526, -30.8798, 0, 0, 0, 0, 1166.29, -58.4512, 0, 0, 0, 0, 1355.28, -88.6893 )
 }
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 56.4314, 41.8364 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -43,7 +38,7 @@ antialiased = true
 visible = false
 
 [node name="Path" type="Path2D" parent="Terrain"]
-position = Vector2( 39.598, 14.1421 )
+position = Vector2( 39.598, 15.4769 )
 curve = SubResource( 1 )
 
 [node name="Raath" type="RigidBody2D" parent="."]
@@ -82,126 +77,31 @@ disabled = true
 z_index = 1
 
 [node name="Man_Path" type="Path2D" parent="."]
-position = Vector2( 668.918, -337.599 )
+visible = false
+position = Vector2( 673.013, -341.097 )
 curve = SubResource( 4 )
 script = ExtResource( 8 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Man_Path"]
+[node name="PF1" parent="Man_Path" instance=ExtResource( 6 )]
 position = Vector2( 2.401, 7.23654 )
 rotation = -0.260603
-loop = false
 
-[node name="GOM1" type="KinematicBody2D" parent="Man_Path/PathFollow2D"]
-position = Vector2( -87.9741, -13.6544 )
-input_pickable = true
-script = ExtResource( 6 )
+[node name="PF2" parent="Man_Path" instance=ExtResource( 6 )]
+position = Vector2( 155.047, -62.5237 )
+rotation = -0.459392
+offset = 168.1
 
-[node name="C" type="CollisionShape2D" parent="Man_Path/PathFollow2D/GOM1"]
-visible = false
-position = Vector2( -81.8078, -21.7389 )
-rotation = 0.0292063
-shape = SubResource( 5 )
+[node name="PF3" parent="Man_Path" instance=ExtResource( 6 )]
+position = Vector2( 289.046, -112.944 )
+rotation = -0.228215
+offset = 312.19
 
-[node name="Man1" parent="Man_Path/PathFollow2D/GOM1" instance=ExtResource( 7 )]
-position = Vector2( -33.2807, -25.2598 )
-
-[node name="Man2" parent="Man_Path/PathFollow2D/GOM1" instance=ExtResource( 7 )]
-position = Vector2( -39.1913, -25.2832 )
-
-[node name="Man3" parent="Man_Path/PathFollow2D/GOM1" instance=ExtResource( 7 )]
-position = Vector2( -69.5577, -27.3381 )
-
-[node name="Man4" parent="Man_Path/PathFollow2D/GOM1" instance=ExtResource( 7 )]
-position = Vector2( -85.3044, -27.4276 )
-
-[node name="Man5" parent="Man_Path/PathFollow2D/GOM1" instance=ExtResource( 7 )]
-position = Vector2( -109.65, -28.3514 )
-
-[node name="GOM2" type="KinematicBody2D" parent="Man_Path/PathFollow2D"]
-position = Vector2( 92.1908, 2.39377 )
-input_pickable = true
-script = ExtResource( 6 )
-
-[node name="C" type="CollisionShape2D" parent="Man_Path/PathFollow2D/GOM2"]
-visible = false
-position = Vector2( -81.8078, -21.7389 )
-rotation = 0.0292063
-shape = SubResource( 5 )
-
-[node name="Man1" parent="Man_Path/PathFollow2D/GOM2" instance=ExtResource( 7 )]
-position = Vector2( -33.2807, -25.2598 )
-
-[node name="Man2" parent="Man_Path/PathFollow2D/GOM2" instance=ExtResource( 7 )]
-position = Vector2( -39.1913, -25.2832 )
-
-[node name="Man3" parent="Man_Path/PathFollow2D/GOM2" instance=ExtResource( 7 )]
-position = Vector2( -69.5577, -27.3381 )
-
-[node name="Man4" parent="Man_Path/PathFollow2D/GOM2" instance=ExtResource( 7 )]
-position = Vector2( -85.3044, -27.4276 )
-
-[node name="Man5" parent="Man_Path/PathFollow2D/GOM2" instance=ExtResource( 7 )]
-position = Vector2( -109.65, -28.3514 )
-
-[node name="GOM3" type="KinematicBody2D" parent="Man_Path/PathFollow2D"]
-position = Vector2( 265.787, 4.54028 )
-input_pickable = true
-script = ExtResource( 6 )
-
-[node name="C" type="CollisionShape2D" parent="Man_Path/PathFollow2D/GOM3"]
-visible = false
-position = Vector2( -81.8078, -21.7389 )
-rotation = 0.0292063
-shape = SubResource( 5 )
-
-[node name="Man1" parent="Man_Path/PathFollow2D/GOM3" instance=ExtResource( 7 )]
-position = Vector2( -33.2807, -25.2598 )
-
-[node name="Man2" parent="Man_Path/PathFollow2D/GOM3" instance=ExtResource( 7 )]
-position = Vector2( -39.1913, -25.2832 )
-
-[node name="Man3" parent="Man_Path/PathFollow2D/GOM3" instance=ExtResource( 7 )]
-position = Vector2( -69.5577, -27.3381 )
-
-[node name="Man4" parent="Man_Path/PathFollow2D/GOM3" instance=ExtResource( 7 )]
-position = Vector2( -85.3044, -27.4276 )
-
-[node name="Man5" parent="Man_Path/PathFollow2D/GOM3" instance=ExtResource( 7 )]
-position = Vector2( -109.65, -28.3514 )
-
-[node name="GOM4" type="KinematicBody2D" parent="Man_Path/PathFollow2D"]
-position = Vector2( 405.576, -36.9062 )
-rotation = 0.225147
-input_pickable = true
-script = ExtResource( 6 )
-
-[node name="C" type="CollisionShape2D" parent="Man_Path/PathFollow2D/GOM4"]
-visible = false
-position = Vector2( -81.8078, -21.7389 )
-rotation = 0.0292063
-shape = SubResource( 5 )
-
-[node name="Man1" parent="Man_Path/PathFollow2D/GOM4" instance=ExtResource( 7 )]
-position = Vector2( -33.2807, -25.2598 )
-
-[node name="Man2" parent="Man_Path/PathFollow2D/GOM4" instance=ExtResource( 7 )]
-position = Vector2( -39.1913, -25.2832 )
-
-[node name="Man3" parent="Man_Path/PathFollow2D/GOM4" instance=ExtResource( 7 )]
-position = Vector2( -69.5577, -27.3381 )
-
-[node name="Man4" parent="Man_Path/PathFollow2D/GOM4" instance=ExtResource( 7 )]
-position = Vector2( -85.3044, -27.4276 )
-
-[node name="Man5" parent="Man_Path/PathFollow2D/GOM4" instance=ExtResource( 7 )]
-position = Vector2( -109.65, -28.3514 )
+[node name="PF4" parent="Man_Path" instance=ExtResource( 6 )]
+position = Vector2( 441.74, -90.4085 )
+rotation = 0.275294
+offset = 468.28
 
 [node name="DhimeBaja" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
 volume_db = 15.0
 script = ExtResource( 10 )
-
-[connection signal="input_event" from="Man_Path/PathFollow2D/GOM1" to="Man_Path/PathFollow2D/GOM1" method="_on_GOM_input_event"]
-[connection signal="input_event" from="Man_Path/PathFollow2D/GOM2" to="Man_Path/PathFollow2D/GOM2" method="_on_GOM_input_event"]
-[connection signal="input_event" from="Man_Path/PathFollow2D/GOM3" to="Man_Path/PathFollow2D/GOM3" method="_on_GOM_input_event"]
-[connection signal="input_event" from="Man_Path/PathFollow2D/GOM4" to="Man_Path/PathFollow2D/GOM4" method="_on_GOM_input_event"]
