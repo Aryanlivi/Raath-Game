@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://Raath.gd" type="Script" id=1]
 [ext_resource path="res://RaathSprite.tscn" type="PackedScene" id=2]
@@ -30,7 +30,7 @@
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 375.11, -65.9524, -48.1376, 26.4285, 48.1376, -26.4285, 555.313, -68.6221, -440.005, 17.9594, 440.005, -17.9594, 1691.9, -591.795, 0, 0, 0, 0, 3251.81, -24.4348 )
+"points": PoolVector2Array( 0, 0, 0, 0, 375.11, -65.9524, -48.1376, 26.4285, 48.1376, -26.4285, 555.313, -68.6221, -440.005, 17.9594, 440.005, -17.9594, 1691.9, -591.795, 0, 0, 0, 0, 3238.89, -13.5912, 0, 0, 0, 0, 4967.23, -10.0277 )
 }
 
 [sub_resource type="Resource" id=68]
@@ -54,7 +54,7 @@ width = 1.0
 
 [sub_resource type="Resource" id=71]
 script = ExtResource( 13 )
-position = Vector2( 3255.15, -7.03894 )
+position = Vector2( 5194.73, 24.9974 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
 properties = SubResource( 70 )
@@ -80,7 +80,7 @@ width = 1.0
 
 [sub_resource type="Resource" id=75]
 script = ExtResource( 13 )
-position = Vector2( 3247.31, 684.867 )
+position = Vector2( 5180.16, 631.473 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
 properties = SubResource( 74 )
@@ -177,6 +177,19 @@ point_out = Vector2( 0, 0 )
 properties = SubResource( 88 )
 
 [sub_resource type="Resource" id=90]
+script = ExtResource( 14 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=91]
+script = ExtResource( 13 )
+position = Vector2( 3277.39, 4.32275 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 90 )
+
+[sub_resource type="Resource" id=92]
 script = ExtResource( 7 )
 _points = {
 0: SubResource( 69 ),
@@ -189,13 +202,14 @@ _points = {
 9: SubResource( 83 ),
 10: SubResource( 85 ),
 11: SubResource( 87 ),
-12: SubResource( 89 )
+12: SubResource( 89 ),
+14: SubResource( 91 )
 }
-_point_order = [ 3, 10, 12, 8, 7, 11, 2, 4, 9, 5, 0 ]
+_point_order = [ 3, 10, 12, 8, 7, 11, 14, 2, 4, 9, 5, 0 ]
 _constraints = {
 [ 0, 3 ]: 15
 }
-_next_key = 14
+_next_key = 15
 
 [sub_resource type="Resource" id=27]
 script = ExtResource( 17 )
@@ -372,7 +386,7 @@ script = ExtResource( 10 )
 
 [node name="Ground" type="Node2D" parent="Terrain"]
 script = ExtResource( 12 )
-_points = SubResource( 90 )
+_points = SubResource( 92 )
 material_overrides = {
 }
 shape_material = SubResource( 30 )
@@ -388,7 +402,7 @@ collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 visible = false
 modulate = Color( 1, 1, 1, 0.3 )
 position = Vector2( 0.523193, -35.1994 )
-polygon = PoolVector2Array( -3.28043, 31.7314, 521.247, 9.92472, 528.406, 18.7241, 532.547, 21.272, 1225.11, -376.055, 1281.76, -407.844, 1339.76, -434.703, 1398.89, -456.893, 1458.94, -474.675, 1580.99, -498.025, 1704.27, -506.801, 1827.13, -503.067, 1947.94, -488.882, 2176.81, -437.356, 2377.71, -368.659, 2537.5, -299.237, 2681.11, -223.974, 3255.67, 27.4871, 3248.32, 721.621, 1492.93, 711.214, -8.89617, 704.025 )
+polygon = PoolVector2Array( -3.28043, 31.7314, 521.247, 9.92472, 528.406, 18.7241, 532.547, 21.272, 1225.11, -376.055, 1281.76, -407.844, 1339.76, -434.703, 1398.89, -456.893, 1458.94, -474.675, 1580.99, -498.025, 1704.27, -506.801, 1827.13, -503.067, 1947.94, -488.882, 2176.81, -437.356, 2377.71, -368.659, 2537.5, -299.237, 2681.11, -223.973, 3276.9, 39.3719, 5195.81, 58.6464, 5181.11, 668.168, 1492.93, 711.215, -8.89618, 704.025 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 1280.4, -693.457 )
@@ -399,14 +413,14 @@ drag_margin_v_enabled = true
 script = ExtResource( 5 )
 
 [node name="Checkpoint" type="StaticBody2D" parent="."]
-position = Vector2( 1862, -784 )
+position = Vector2( 4308.52, -232.777 )
 z_index = -1
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Checkpoint"]
 position = Vector2( -116.736, 87.552 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 67 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Sprite" type="Sprite" parent="Checkpoint"]
