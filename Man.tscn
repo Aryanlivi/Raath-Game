@@ -57,13 +57,14 @@ rotation = -0.0206741
 shape = SubResource( 1 )
 
 [node name="J" type="PinJoint2D" parent="."]
-position = Vector2( 0.61647, 11.4921 )
+position = Vector2( 3.65839, -18.9161 )
 rotation = -0.0206741
 
 [node name="ManSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 29.0978, -3.37671 )
+position = Vector2( 28.4132, -46.0285 )
 rotation = -0.0206741
 frames = SubResource( 6 )
-animation = "idle"
+animation = "pull"
+frame = 2
 playing = true
 script = ExtResource( 1 )

@@ -1,5 +1,5 @@
 extends Node
-enum state{IDLE,CREATE,ATTACH,PULL}
+enum state{IDLE,CREATE,ATTACH,PULL,STOP}
 var level=1
 var GroupCount:int
 var IdleGroup:int

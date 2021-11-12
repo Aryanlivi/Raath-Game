@@ -4,7 +4,7 @@
 [ext_resource path="res://Man.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 56.4314, 41.8364 )
+extents = Vector2( 74.1675, 58.5155 )
 
 [node name="PF1" type="PathFollow2D"]
 loop = false
@@ -21,7 +21,7 @@ rotation = 0.0292063
 shape = SubResource( 1 )
 
 [node name="Man1" parent="GOM" instance=ExtResource( 2 )]
-position = Vector2( -28.8262, -26.5962 )
+position = Vector2( -11.9893, -26.0349 )
 collision_layer = 0
 collision_mask = 0
 
@@ -36,12 +36,12 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="Man4" parent="GOM" instance=ExtResource( 2 )]
-position = Vector2( -85.3044, -27.4276 )
+position = Vector2( -107.754, -26.3052 )
 collision_layer = 0
 collision_mask = 0
 
 [node name="Man5" parent="GOM" instance=ExtResource( 2 )]
-position = Vector2( -109.65, -28.3514 )
+position = Vector2( -138.273, -27.2289 )
 collision_layer = 0
 collision_mask = 0
 

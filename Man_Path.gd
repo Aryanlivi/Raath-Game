@@ -14,6 +14,8 @@ func _process(delta):
 		t+=delta
 		for i in range(0,Game.GroupCount):
 			Pathfollow[i].offset=init_offset[i]+t*100
+		if(Pathfollow[0].unit_offset==1):
+			Game.gamestate=Game.state.STOP
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
