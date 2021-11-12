@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
+[ext_resource path="res://Raath.gd" type="Script" id=1]
 [ext_resource path="res://Raathnew.tscn" type="PackedScene" id=2]
 [ext_resource path="res://main.gd" type="Script" id=3]
 [ext_resource path="res://Rope.tscn" type="PackedScene" id=4]
@@ -7,6 +8,8 @@
 [ext_resource path="res://GOM.gd" type="Script" id=6]
 [ext_resource path="res://Man.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Man_Path.gd" type="Script" id=8]
+[ext_resource path="res://assets/Dhime Baja.mp3" type="AudioStream" id=9]
+[ext_resource path="res://DhimeBaja.gd" type="Script" id=10]
 
 [sub_resource type="Curve2D" id=1]
 bake_interval = 20.0
@@ -43,29 +46,23 @@ visible = false
 position = Vector2( 39.598, 14.1421 )
 curve = SubResource( 1 )
 
-[node name="Raathnew" parent="." instance=ExtResource( 2 )]
-position = Vector2( -35.448, -364.155 )
-rotation = 0.225147
+[node name="Raath" type="RigidBody2D" parent="."]
+script = ExtResource( 1 )
 
-[node name="lowerbody" parent="Raathnew" index="3"]
-input_pickable = true
+[node name="Raathnew" parent="Raath" instance=ExtResource( 2 )]
+position = Vector2( -13.4543, -356.54 )
+rotation = 0.193586
 
-[node name="upperbody" parent="Raathnew" index="4"]
-input_pickable = true
-
-[node name="Camera2D" type="Camera2D" parent="Raathnew"]
-scale = Vector2( 3.00993, 0.710939 )
-offset = Vector2( 1000, -600 )
+[node name="Camera2D" type="Camera2D" parent="Raath"]
+offset = Vector2( 1024, -600 )
 current = true
 zoom = Vector2( 2, 2 )
 limit_left = -1024
-limit_top = -800
+limit_top = -600
 limit_right = 1024
-limit_bottom = 800
+limit_bottom = 600
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
-drag_margin_left = 0.4
-drag_margin_right = 0.4
 
 [node name="RopeCursor" type="StaticBody2D" parent="."]
 visible = false
@@ -199,9 +196,12 @@ position = Vector2( -85.3044, -27.4276 )
 [node name="Man5" parent="Man_Path/PathFollow2D/GOM4" instance=ExtResource( 7 )]
 position = Vector2( -109.65, -28.3514 )
 
+[node name="DhimeBaja" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+volume_db = 15.0
+script = ExtResource( 10 )
+
 [connection signal="input_event" from="Man_Path/PathFollow2D/GOM1" to="Man_Path/PathFollow2D/GOM1" method="_on_GOM_input_event"]
 [connection signal="input_event" from="Man_Path/PathFollow2D/GOM2" to="Man_Path/PathFollow2D/GOM2" method="_on_GOM_input_event"]
 [connection signal="input_event" from="Man_Path/PathFollow2D/GOM3" to="Man_Path/PathFollow2D/GOM3" method="_on_GOM_input_event"]
 [connection signal="input_event" from="Man_Path/PathFollow2D/GOM4" to="Man_Path/PathFollow2D/GOM4" method="_on_GOM_input_event"]
-
-[editable path="Raathnew"]

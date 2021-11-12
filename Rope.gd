@@ -1,6 +1,6 @@
 extends Node2D 
 var RopePiece=preload("res://RopePiece.tscn")
-onready var raath=get_parent().get_node("Raathnew")
+onready var raath=get_parent().get_node("Raath")
 onready var RopeCursor=get_parent().get_node("RopeCursor")
 onready var RopeCursorJ=RopeCursor.get_node("J")
 var no_of_pieces=0

@@ -41,3 +41,4 @@ func _process(delta):
 		create_rope(Game.gom_id)
 	if(Game.IdleGroup==0):
 		Game.gamestate=Game.state.PULL
+	
