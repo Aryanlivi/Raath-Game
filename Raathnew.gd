@@ -12,11 +12,12 @@ func _ready():
 
 func _process(delta):
 	if(Game.gamestate!=Game.state.PULL):
-		$Wheelsupport.sleeping=true
-		$WheelA.sleeping=true
-		$WheelB.sleeping=true
-		$lowerbody.sleeping=true
-		$upperbody.sleeping=true
+		var val=true
+		$Wheelsupport.sleeping=val
+		$WheelA.sleeping=val
+		$WheelB.sleeping=val
+		$lowerbody.sleeping=val
+		$upperbody.sleeping=val
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
