@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Man_Path.gd" type="Script" id=1]
 
 [sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 12.23, 13.191 )
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2.401, 7.23654, 0, 0, 0, 0, 27.6279, 0.509369, 0, 0, 0, 0, 228.582, -98.9011, 0, 0, 0, 0, 306.082, -116.901, 0, 0, 0, 0, 381.582, -107.401, 0, 0, 0, 0, 565.063, -55.574, 0, 0, 0, 0, 699.197, -32.0023, 0, 0, 0, 0, 885.526, -30.8798, 0, 0, 0, 0, 1166.29, -58.4512, 0, 0, 0, 0, 1355.28, -88.6893 )
+}
 
 [node name="Ground" type="StaticBody2D"]
 position = Vector2( 394.594, -12.2003 )
@@ -20,3 +27,9 @@ mesh = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 32.2, 1 )
 shape = SubResource( 2 )
+
+[node name="oldMan_Path" type="Path2D" parent="."]
+visible = false
+position = Vector2( 696.042, -192.183 )
+curve = SubResource( 3 )
+script = ExtResource( 1 )

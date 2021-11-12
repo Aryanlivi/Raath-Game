@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Terrain.gd" type="Script" id=1]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 3.55618, 6.32623, 0, 0, 0, 0, -1.7832, 598.995, 0, 0, 0, 0, 2497.04, 593.656, 0, 0, 0, 0, 2499.71, 8.99591, 0, 0, 0, 0, 2503.69, 5.40491, 1165.15, -209.537, -1165.15, 209.537, 1228.61, 6.75006, 0, 0, 0, 0, 0.603722, 0.915039, 0, 0, 0, 0, 3.55618, 6.32623 )
+}
+
+[node name="Terrain" type="StaticBody2D"]
+visible = false
+position = Vector2( -64.5542, -413.144 )
+script = ExtResource( 1 )
+
+[node name="Poly" type="Polygon2D" parent="."]
+antialiased = true
+
+[node name="CPoly" type="CollisionPolygon2D" parent="."]
+visible = false
+
+[node name="Path" type="Path2D" parent="."]
+position = Vector2( 39.598, 15.4769 )
+curve = SubResource( 1 )
