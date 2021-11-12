@@ -21,17 +21,17 @@ rotation = 0.0292063
 shape = SubResource( 1 )
 
 [node name="Man1" parent="GOM" instance=ExtResource( 2 )]
-position = Vector2( -33.2807, -25.2598 )
+position = Vector2( -28.8262, -26.5962 )
 collision_layer = 0
 collision_mask = 0
 
 [node name="Man2" parent="GOM" instance=ExtResource( 2 )]
-position = Vector2( -39.1913, -25.2832 )
+position = Vector2( -43.2003, -24.8378 )
 collision_layer = 0
 collision_mask = 0
 
 [node name="Man3" parent="GOM" instance=ExtResource( 2 )]
-position = Vector2( -69.5577, -27.3381 )
+position = Vector2( -67.3305, -27.3381 )
 collision_layer = 0
 collision_mask = 0
 

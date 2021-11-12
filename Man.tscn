@@ -1,57 +1,47 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ManSprite.gd" type="Script" id=1]
-[ext_resource path="res://assets/pngegg.png" type="Texture" id=2]
+[ext_resource path="res://assets/stickman.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 13.7333
-height = 50.2195
+radius = 24.2853
+height = 101.831
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 163, 128, 163 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 128, 163, 128, 163 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 256, 163, 128, 163 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 384, 163, 128, 163 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 512, 163, 128, 163 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 640, 163, 128, 163 )
+region = Rect2( 1512, 0, 378, 318 )
 
 [sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 768, 163, 128, 163 )
+region = Rect2( 0, 0, 378, 318 )
 
 [sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 896, 163, 128, 163 )
+region = Rect2( 378, 0, 378, 318 )
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 756, 0, 378, 318 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1134, 0, 378, 318 )
+
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"frames": [ SubResource( 12 ) ],
 "loop": true,
-"name": "default",
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "pull",
 "speed": 5.0
 } ]
 
@@ -62,16 +52,18 @@ input_pickable = true
 
 [node name="C" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( 0, 4.16222 )
+position = Vector2( 4.74828, 22.552 )
 rotation = -0.0206741
 shape = SubResource( 1 )
 
 [node name="J" type="PinJoint2D" parent="."]
-position = Vector2( 0.0826912, 2.83041 )
+position = Vector2( 0.61647, 11.4921 )
 rotation = -0.0206741
 
 [node name="ManSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 29.0978, -3.37671 )
 rotation = -0.0206741
-scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 10 )
+frames = SubResource( 6 )
+animation = "idle"
+playing = true
 script = ExtResource( 1 )
