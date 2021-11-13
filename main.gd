@@ -33,6 +33,7 @@ func create_rope(path):
 			ManArray.append(val)
 	#new rope instance
 	Game.currentRope=Rope.instance()
+	Game.currentRope.GOM=GOM
 	add_child(Game.currentRope)
 	Game.Ropes.append(Game.currentRope)
 	Game.currentRope.spawn_rope(ManArray) 

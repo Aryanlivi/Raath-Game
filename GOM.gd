@@ -19,7 +19,11 @@ func _process(delta):
 			
 	if(Game.gamestate==Game.state.DRAG):
 		var mousepos=get_global_mouse_position()
-		var current_pf=get_node(Game.gom_path).get_parent()
+		var current_GOM=get_node(Game.gom_path)
+		var current_pf=current_GOM.get_parent()
+		#for rope in Game.Ropes:
+			#if(rope.GOM==current_GOM):
+				
 		var direction=(mousepos-current_pf.position).normalized()
 		var speed=10
 		current_pf.offset+=direction.x*speed
