@@ -17,7 +17,11 @@ func _process(delta):
 	if(Game.gamestate==Game.state.PULL):
 		t+=delta
 		for i in range(0,Game.GroupCount):
-			Pathfollow[i].offset=init_offset[i]+t*100
+			var ele=Game.GOMArray[i]
+			if(ele.direction=="Right"):
+				Pathfollow[i].offset=init_offset[i]+t*100
+			elif(ele.direction=="Left"):
+				Pathfollow[i].offset=init_offset[i]-t*100
 		if(Pathfollow[0].unit_offset==1):
 			Game.gamestate=Game.state.END
 	if(Game.gamestate!=Game.state.PULL):

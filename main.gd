@@ -7,16 +7,21 @@ var NonIdleGroup:int=0
 var Rope=preload("res://Rope.tscn")
 func _ready():
 	Game.gamestate=Game.state.IDLE
+	for i in range(0,Game.GroupCount):
+			 var GOM=get_node("Man_Path/PF"+str(i+1)).get_node("GOM")
+			 Game.GOMArray.append(GOM)
 	
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
 			if !event.pressed and Game.allow_attach and Game.raath_part_to_attach!=null :
 				Game.currentRope.attach_to_raath()
+				Game.currentGOM.rope_attached=true
+				#Game.IdleGroup-=1
+				update()
 				#Game.raath_part_to_attach=null
 				#updates number of unused groups. Activates PULL state as value soon as it becomes 0
-				Game.IdleGroup-=1
-				update()
+				
 				
 
 func update():

@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Right.gd" type="Script" id=1]
+[ext_resource path="res://Left.gd" type="Script" id=2]
+[ext_resource path="res://RopeButton.gd" type="Script" id=3]
+
+[node name="Options" type="Node2D"]
+scale = Vector2( 2, 2 )
+
+[node name="Right" type="Button" parent="."]
+margin_left = 105.562
+margin_top = 0.595276
+margin_right = 133.562
+margin_bottom = 20.5953
+text = "=>"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="Button" parent="."]
+margin_left = -28.3748
+margin_top = 0.595276
+margin_right = -0.374802
+margin_bottom = 20.5953
+text = "<="
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rope" type="Button" parent="."]
+margin_left = 4.16693
+margin_top = 0.793701
+margin_right = 48.1669
+margin_bottom = 20.7937
+text = "Rope"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Drink" type="Button" parent="."]
+margin_left = 53.9716
+margin_top = 1.19055
+margin_right = 99.9716
+margin_bottom = 21.1906
+text = "Drink"
+__meta__ = {
+"_edit_use_anchors_": false
+}
