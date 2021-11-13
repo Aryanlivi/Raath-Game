@@ -21,15 +21,17 @@ func show_options():
 	Game.currentGOM.options_enabled=true
 	Game.currentGOM.options=Options_Scene.instance()
 	add_child(Game.currentGOM.options)
-	
 	Game.currentGOM.options.position.x=self.position.x-options_offset
 	Game.currentGOM.options.position.y=self.position.y-options_offset
 	for ele in Game.GOMArray:
 		if(ele!=Game.currentGOM):
-			if(ele.options_enabled):
-				ele.options.queue_free()
-				ele.options_enabled=false
-	
+			remove_options(ele)
+		
+func remove_options(ele):
+	if(ele.options_enabled):
+		ele.options.queue_free()
+		ele.options_enabled=false
+		
 func update_options():
 	allow_update=false
 	if(!Game.currentGOM.options_enabled):
@@ -38,12 +40,14 @@ func update_options():
 	if(Game.currentGOM.direction=="Right" and Game.button_pressed):
 		Game.currentGOM.scale.x=1
 		Game.currentGOM.options.scale.x=2
+		Game.currentGOM.position.x+=options_offset
 		Game.currentGOM.options.position.x-=options_offset
 		Game.button_pressed=false
 		
 	elif(Game.currentGOM.direction=="Left" and  Game.button_pressed):
 		Game.currentGOM.scale.x=-1
 		Game.currentGOM.options.scale.x=-2
+		Game.currentGOM.position.x-=options_offset
 		Game.currentGOM.options.position.x+=options_offset
 		Game.button_pressed=false
 	#self.options.queue_free()
@@ -53,6 +57,7 @@ func _process(delta):
 		update_options()
 	if Game.gamestate==Game.state.PULL:
 		self.input_pickable=true
+		remove_options(self)
 	if(Game.gamestate==Game.state.DRAG):
 		var current_GOM=get_node(Game.gom_path)
 		Game.currentPF=current_GOM.get_parent()
