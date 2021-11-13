@@ -178,6 +178,10 @@ config/icon="res://icon.png"
 
 Game="*res://Game.gd"
 
+[display]
+
+window/size/width=6010
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/rmsmartshape/plugin.cfg" )

@@ -3,7 +3,7 @@ extends Camera2D
 
 # Declare member variables here. Examples:
 onready var Raath=get_parent().get_node("Raath/RaathSprite").get_node("lowerbody")
-var cam_offset=1000
+var cam_offset=0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
