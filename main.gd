@@ -53,7 +53,6 @@ func _process(delta):
 		create_rope(Game.gom_path)
 	if(Game.gamestate==Game.state.PULL):
 		Game.PULL_STATE()
-	
 	if(Game.gamestate==Game.state.DRAG):
 		Game.DRAG_STATE()
 	

@@ -420,7 +420,7 @@ z_index = -1
 position = Vector2( -116.736, 87.552 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 46 )
-frame = 10
+frame = 3
 playing = true
 
 [node name="Sprite" type="Sprite" parent="Checkpoint"]

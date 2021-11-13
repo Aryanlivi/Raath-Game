@@ -10,6 +10,7 @@ var allow_drag:bool=false
 var gom_path=null
 var raath_part_to_attach=null
 var currentRope=null
+var currenPF=null
 var Ropes:Array
 func _ready():
 	print("Game Initialized!")

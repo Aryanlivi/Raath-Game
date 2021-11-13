@@ -13,8 +13,7 @@ func _ready():
 
 func _process(delta):
 	if(Game.gamestate!=Game.state.PULL):
-		var val=true
-		self.sleeping=val
+		self.sleeping=true
 	#else:
 		#self.sleeping=false
 # Called every frame. 'delta' is the elapsed time since the previous frame.

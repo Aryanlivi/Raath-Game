@@ -13,28 +13,32 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#print(Game.gamestate)
+	
 	if Game.gamestate==Game.state.PULL:
 		self.input_pickable=true
 			
 	if(Game.gamestate==Game.state.DRAG):
-		var mousepos=get_global_mouse_position()
 		var current_GOM=get_node(Game.gom_path)
-		var current_pf=current_GOM.get_parent()
-		#for rope in Game.Ropes:
-			#if(rope.GOM==current_GOM):
-				
-		var direction=(mousepos-current_pf.position).normalized()
+		Game.currenPF=current_GOM.get_parent()
+		for rope in Game.Ropes:
+			if(rope.GOM==current_GOM):
+				Game.Ropes.erase(rope)
+				rope.queue_free()
+		var mousepos=get_global_mouse_position()
+		var direction=(mousepos-Game.currenPF.position).normalized()
 		var speed=10
-		current_pf.offset+=direction.x*speed
+		Game.currenPF.offset+=direction.x*speed
+	
+		
+	
 
 
 func _on_GOM_input_event(viewport, event, shape_idx):
 	if Input.is_action_pressed("click"): 
 		Game.gom_path=self.get_path()
-		if Game.gamestate==Game.state.IDLE:
+		if Game.gamestate==Game.state.IDLE or Game.gamestate==Game.state.DRAG:
 			Game.gamestate=Game.state.CREATE
 		if(Game.gamestate==Game.state.PULL):
 			Game.gamestate=Game.state.DRAG
-			
+				
 		
