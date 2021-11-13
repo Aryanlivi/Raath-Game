@@ -21,27 +21,17 @@ shape = SubResource( 1 )
 
 [node name="Man1" parent="GOM" instance=ExtResource( 2 )]
 position = Vector2( -11.9893, -26.0349 )
-collision_layer = 0
-collision_mask = 0
 
 [node name="Man2" parent="GOM" instance=ExtResource( 2 )]
 position = Vector2( -29.1696, -26.5214 )
-collision_layer = 0
-collision_mask = 0
 
 [node name="Man3" parent="GOM" instance=ExtResource( 2 )]
 position = Vector2( -48.2486, -26.7769 )
-collision_layer = 0
-collision_mask = 0
 
 [node name="Man4" parent="GOM" instance=ExtResource( 2 )]
 position = Vector2( -72.3961, -27.4276 )
-collision_layer = 0
-collision_mask = 0
 
 [node name="Man5" parent="GOM" instance=ExtResource( 2 )]
 position = Vector2( -109.65, -26.1065 )
-collision_layer = 0
-collision_mask = 0
 
 [connection signal="input_event" from="GOM" to="GOM" method="_on_GOM_input_event"]

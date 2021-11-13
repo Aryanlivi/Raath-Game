@@ -91,7 +91,7 @@ __meta__ = {
 [node name="Wheelsupport" type="RigidBody2D" parent="."]
 position = Vector2( 184, -91.6708 )
 input_pickable = true
-mass = 30.0
+mass = 64.11
 sleeping = true
 script = ExtResource( 4 )
 
