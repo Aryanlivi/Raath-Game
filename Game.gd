@@ -9,8 +9,9 @@ var allow_pull:bool=false
 var allow_drag:bool=false
 var gom_path=null
 var raath_part_to_attach=null
+var ManPath:Path2D
 var currentRope=null
-var currenPF=null
+var currentPF:PathFollow2D=null
 var Ropes:Array
 func _ready():
 	print("Game Initialized!")

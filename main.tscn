@@ -373,9 +373,9 @@ rotation = -0.525361
 offset = 622.36
 
 [node name="PF4" parent="Man_Path" instance=ExtResource( 6 )]
-position = Vector2( 1111.62, -405.481 )
-rotation = -0.467481
-offset = 834.92
+position = Vector2( 1110.81, -405.072 )
+rotation = -0.467793
+offset = 834.0
 
 [node name="DhimeBaja" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
@@ -420,7 +420,7 @@ z_index = -1
 position = Vector2( -116.736, 87.552 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 46 )
-frame = 3
+frame = 6
 playing = true
 
 [node name="Sprite" type="Sprite" parent="Checkpoint"]
