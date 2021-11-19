@@ -12,7 +12,7 @@ var options_offset=130
 var power=null
 var rope_attached:bool=false
 var direction="Right"
-var strength=null
+#var strength=null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -70,10 +70,6 @@ func _process(delta):
 		var speed=10
 		Game.currentPF.offset+=direction.x*speed
 	
-		
-	
-
-
 func _on_GOM_input_event(viewport, event, shape_idx):
 	if Input.is_action_pressed("click"): 
 		Game.gom_path=self.get_path() 

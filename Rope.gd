@@ -12,7 +12,7 @@ var endpiece=null
 var man_joint=[]
 func spawn_rope(body:Array):
 	self.No_of_men=body.size()
-	self.no_of_pieces+=30
+	self.no_of_pieces+=60
 	for i in range(0,self.no_of_pieces):
 		if(i<self.No_of_men):
 			##give node_a

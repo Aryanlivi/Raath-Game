@@ -1,26 +1,26 @@
 [gd_scene load_steps=68 format=2]
 
-[ext_resource path="res://Raath.gd" type="Script" id=1]
-[ext_resource path="res://RaathSprite.tscn" type="PackedScene" id=2]
-[ext_resource path="res://main.gd" type="Script" id=3]
-[ext_resource path="res://Rope.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Camera2D.gd" type="Script" id=5]
-[ext_resource path="res://ManPathfollow.tscn" type="PackedScene" id=6]
-[ext_resource path="res://addons/rmsmartshape/shapes/point_array.gd" type="Script" id=7]
-[ext_resource path="res://Man_Path.gd" type="Script" id=8]
-[ext_resource path="res://assets/Dhime Baja.mp3" type="AudioStream" id=9]
-[ext_resource path="res://DhimeBaja.gd" type="Script" id=10]
-[ext_resource path="res://addons/rmsmartshape/materials/shape_material.gd" type="Script" id=11]
-[ext_resource path="res://addons/rmsmartshape/shapes/shape_closed.gd" type="Script" id=12]
-[ext_resource path="res://addons/rmsmartshape/shapes/point.gd" type="Script" id=13]
-[ext_resource path="res://addons/rmsmartshape/vertex_properties.gd" type="Script" id=14]
-[ext_resource path="res://assets/mud.png" type="Texture" id=15]
-[ext_resource path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" type="Script" id=16]
-[ext_resource path="res://addons/rmsmartshape/materials/edge_material.gd" type="Script" id=17]
+[ext_resource path="res://Man_Path.gd" type="Script" id=1]
+[ext_resource path="res://main.gd" type="Script" id=2]
+[ext_resource path="res://Raath.gd" type="Script" id=3]
+[ext_resource path="res://DhimeBaja.gd" type="Script" id=4]
+[ext_resource path="res://assets/newground.png" type="Texture" id=5]
+[ext_resource path="res://assets/NepalFlag.png" type="Texture" id=6]
+[ext_resource path="res://assets/mud.png" type="Texture" id=7]
+[ext_resource path="res://assets/Dhime Baja.mp3" type="AudioStream" id=8]
+[ext_resource path="res://assets/stand.png" type="Texture" id=9]
+[ext_resource path="res://Rope.tscn" type="PackedScene" id=10]
+[ext_resource path="res://ManPathfollow.tscn" type="PackedScene" id=11]
+[ext_resource path="res://RaathSprite.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Camera2D.gd" type="Script" id=13]
+[ext_resource path="res://addons/rmsmartshape/materials/edge_material.gd" type="Script" id=14]
+[ext_resource path="res://addons/rmsmartshape/shapes/point.gd" type="Script" id=15]
+[ext_resource path="res://addons/rmsmartshape/shapes/point_array.gd" type="Script" id=16]
+[ext_resource path="res://addons/rmsmartshape/vertex_properties.gd" type="Script" id=17]
 [ext_resource path="res://addons/rmsmartshape/normal_range.gd" type="Script" id=18]
-[ext_resource path="res://assets/newground.png" type="Texture" id=19]
-[ext_resource path="res://assets/NepalFlag.png" type="Texture" id=20]
-[ext_resource path="res://assets/stand.png" type="Texture" id=21]
+[ext_resource path="res://addons/rmsmartshape/materials/shape_material.gd" type="Script" id=19]
+[ext_resource path="res://addons/rmsmartshape/shapes/shape_closed.gd" type="Script" id=20]
+[ext_resource path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" type="Script" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -29,163 +29,163 @@
 [sub_resource type="RectangleShape2D" id=3]
 
 [sub_resource type="Resource" id=47]
-script = ExtResource( 14 )
+script = ExtResource( 17 )
 texture_idx = 0
 flip = false
 width = 1.0
 
 [sub_resource type="Resource" id=48]
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 position = Vector2( -1.2739, -2.03561 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
 properties = SubResource( 47 )
 
 [sub_resource type="Resource" id=49]
-script = ExtResource( 14 )
+script = ExtResource( 17 )
 texture_idx = 0
 flip = false
 width = 1.0
 
 [sub_resource type="Resource" id=50]
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 position = Vector2( 11229.8, 29.9488 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
 properties = SubResource( 49 )
 
 [sub_resource type="Resource" id=51]
-script = ExtResource( 14 )
+script = ExtResource( 17 )
 texture_idx = 0
 flip = false
 width = 1.0
 
 [sub_resource type="Resource" id=52]
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 position = Vector2( -1.2739, -2.03561 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
 properties = SubResource( 51 )
 
 [sub_resource type="Resource" id=53]
-script = ExtResource( 14 )
+script = ExtResource( 17 )
 texture_idx = 0
 flip = false
 width = 1.0
 
 [sub_resource type="Resource" id=54]
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 position = Vector2( 11172.5, 682.327 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
 properties = SubResource( 53 )
 
 [sub_resource type="Resource" id=55]
-script = ExtResource( 14 )
+script = ExtResource( 17 )
 texture_idx = 0
 flip = false
 width = 1.0
 
 [sub_resource type="Resource" id=56]
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 position = Vector2( -6.8042, 667.279 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
 properties = SubResource( 55 )
 
 [sub_resource type="Resource" id=57]
-script = ExtResource( 14 )
+script = ExtResource( 17 )
 texture_idx = 0
 flip = false
 width = 1.0
 
 [sub_resource type="Resource" id=58]
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 position = Vector2( 1493.45, 676.015 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
 properties = SubResource( 57 )
 
 [sub_resource type="Resource" id=59]
-script = ExtResource( 14 )
+script = ExtResource( 17 )
 texture_idx = 0
 flip = false
 width = 1.0
 
 [sub_resource type="Resource" id=60]
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 position = Vector2( 2289.63, -533.566 )
 point_in = Vector2( -391.995, 17.818 )
 point_out = Vector2( 391.995, -17.818 )
 properties = SubResource( 59 )
 
 [sub_resource type="Resource" id=61]
-script = ExtResource( 14 )
+script = ExtResource( 17 )
 texture_idx = 0
 flip = false
 width = 1.0
 
 [sub_resource type="Resource" id=62]
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 position = Vector2( 3277.39, 4.32275 )
 point_in = Vector2( -252.112, -71.3524 )
 point_out = Vector2( 252.112, 71.3524 )
 properties = SubResource( 61 )
 
 [sub_resource type="Resource" id=63]
-script = ExtResource( 14 )
+script = ExtResource( 17 )
 texture_idx = 0
 flip = false
 width = 1.0
 
 [sub_resource type="Resource" id=64]
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 position = Vector2( 5820.01, 10.3242 )
 point_in = Vector2( -822.143, -84.7571 )
 point_out = Vector2( 822.143, 84.7571 )
 properties = SubResource( 63 )
 
 [sub_resource type="Resource" id=65]
-script = ExtResource( 14 )
+script = ExtResource( 17 )
 texture_idx = 0
 flip = false
 width = 1.0
 
 [sub_resource type="Resource" id=66]
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 position = Vector2( 7388.02, -1210.18 )
 point_in = Vector2( -1330.69, 610.251 )
 point_out = Vector2( 1330.69, -610.251 )
 properties = SubResource( 65 )
 
 [sub_resource type="Resource" id=67]
-script = ExtResource( 14 )
+script = ExtResource( 17 )
 texture_idx = 0
 flip = false
 width = 1.0
 
 [sub_resource type="Resource" id=68]
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 position = Vector2( 9049.26, -6.6272 )
 point_in = Vector2( -254.271, -313.601 )
 point_out = Vector2( 254.271, 313.601 )
 properties = SubResource( 67 )
 
 [sub_resource type="Resource" id=69]
-script = ExtResource( 14 )
+script = ExtResource( 17 )
 texture_idx = 0
 flip = false
 width = 1.0
 
 [sub_resource type="Resource" id=70]
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 position = Vector2( 1577.5, 31.9821 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
 properties = SubResource( 69 )
 
 [sub_resource type="Resource" id=71]
-script = ExtResource( 7 )
+script = ExtResource( 16 )
 _points = {
 0: SubResource( 48 ),
 2: SubResource( 50 ),
@@ -207,8 +207,8 @@ _constraints = {
 _next_key = 29
 
 [sub_resource type="Resource" id=29]
-script = ExtResource( 17 )
-textures = [ ExtResource( 19 ) ]
+script = ExtResource( 14 )
+textures = [ ExtResource( 5 ) ]
 texture_normals = [  ]
 textures_corner_outer = [  ]
 textures_corner_inner = [  ]
@@ -229,7 +229,7 @@ distance = 135.0
 edgeRendering = Vector2( 0, 0 )
 
 [sub_resource type="Resource" id=31]
-script = ExtResource( 16 )
+script = ExtResource( 21 )
 edge_material = SubResource( 29 )
 normal_range = SubResource( 30 )
 weld = true
@@ -239,9 +239,9 @@ z_as_relative = true
 offset = 0.0
 
 [sub_resource type="Resource" id=32]
-script = ExtResource( 11 )
+script = ExtResource( 19 )
 _edge_meta_materials = [ SubResource( 31 ) ]
-fill_textures = [ ExtResource( 15 ) ]
+fill_textures = [ ExtResource( 7 ) ]
 fill_texture_normals = [  ]
 fill_texture_z_index = -10
 fill_mesh_offset = 0.0
@@ -254,62 +254,62 @@ _data = {
 
 [sub_resource type="AtlasTexture" id=34]
 flags = 2
-atlas = ExtResource( 20 )
+atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 397, 497 )
 
 [sub_resource type="AtlasTexture" id=35]
 flags = 2
-atlas = ExtResource( 20 )
+atlas = ExtResource( 6 )
 region = Rect2( 397, 0, 397, 497 )
 
 [sub_resource type="AtlasTexture" id=36]
 flags = 2
-atlas = ExtResource( 20 )
+atlas = ExtResource( 6 )
 region = Rect2( 794, 0, 397, 497 )
 
 [sub_resource type="AtlasTexture" id=37]
 flags = 2
-atlas = ExtResource( 20 )
+atlas = ExtResource( 6 )
 region = Rect2( 1191, 0, 397, 497 )
 
 [sub_resource type="AtlasTexture" id=38]
 flags = 2
-atlas = ExtResource( 20 )
+atlas = ExtResource( 6 )
 region = Rect2( 1588, 0, 397, 497 )
 
 [sub_resource type="AtlasTexture" id=39]
 flags = 2
-atlas = ExtResource( 20 )
+atlas = ExtResource( 6 )
 region = Rect2( 1985, 0, 397, 497 )
 
 [sub_resource type="AtlasTexture" id=40]
 flags = 2
-atlas = ExtResource( 20 )
+atlas = ExtResource( 6 )
 region = Rect2( 2382, 0, 397, 497 )
 
 [sub_resource type="AtlasTexture" id=41]
 flags = 2
-atlas = ExtResource( 20 )
+atlas = ExtResource( 6 )
 region = Rect2( 2779, 0, 397, 497 )
 
 [sub_resource type="AtlasTexture" id=42]
 flags = 2
-atlas = ExtResource( 20 )
+atlas = ExtResource( 6 )
 region = Rect2( 3176, 0, 397, 497 )
 
 [sub_resource type="AtlasTexture" id=43]
 flags = 2
-atlas = ExtResource( 20 )
+atlas = ExtResource( 6 )
 region = Rect2( 3573, 0, 397, 497 )
 
 [sub_resource type="AtlasTexture" id=44]
 flags = 2
-atlas = ExtResource( 20 )
+atlas = ExtResource( 6 )
 region = Rect2( 3970, 0, 397, 497 )
 
 [sub_resource type="AtlasTexture" id=45]
 flags = 2
-atlas = ExtResource( 20 )
+atlas = ExtResource( 6 )
 region = Rect2( 4367, 0, 397, 497 )
 
 [sub_resource type="SpriteFrames" id=46]
@@ -321,13 +321,13 @@ animations = [ {
 } ]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 
 [node name="Raath" type="RigidBody2D" parent="."]
 position = Vector2( 1.17157, 6.79898 )
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
-[node name="RaathSprite" parent="Raath" instance=ExtResource( 2 )]
+[node name="RaathSprite" parent="Raath" instance=ExtResource( 12 )]
 position = Vector2( 0, 5 )
 z_index = 2
 
@@ -349,14 +349,14 @@ mesh = SubResource( 2 )
 shape = SubResource( 3 )
 disabled = true
 
-[node name="Rope" parent="." instance=ExtResource( 4 )]
+[node name="Rope" parent="." instance=ExtResource( 10 )]
 z_index = 1
 
 [node name="Terrain" type="StaticBody2D" parent="."]
 
 [node name="Ground" type="Node2D" parent="Terrain"]
 position = Vector2( 27.8785, -13.8591 )
-script = ExtResource( 12 )
+script = ExtResource( 20 )
 _points = SubResource( 71 )
 material_overrides = {
 }
@@ -378,32 +378,32 @@ polygon = PoolVector2Array( 24.5268, 17.7031, 1604.42, 52.489, 1660.99, -32.5441
 [node name="Man_Path" type="Path2D" parent="."]
 position = Vector2( 34.0524, -4.84628 )
 curve = SubResource( 33 )
-script = ExtResource( 8 )
+script = ExtResource( 1 )
 
-[node name="PF1" parent="Man_Path" instance=ExtResource( 6 )]
+[node name="PF1" parent="Man_Path" instance=ExtResource( 11 )]
 position = Vector2( 973.56, 10.5896 )
 rotation = 0.00515432
 offset = 1000.0
 
-[node name="PF2" parent="Man_Path" instance=ExtResource( 6 )]
+[node name="PF2" parent="Man_Path" instance=ExtResource( 11 )]
 position = Vector2( 1223.8, 10.4282 )
 rotation = -0.00852075
 offset = 1250.0
 
-[node name="PF3" parent="Man_Path" instance=ExtResource( 6 )]
+[node name="PF3" parent="Man_Path" instance=ExtResource( 11 )]
 position = Vector2( 1473.68, 3.73408 )
 rotation = -0.0653743
 offset = 1500.0
 
-[node name="PF4" parent="Man_Path" instance=ExtResource( 6 )]
+[node name="PF4" parent="Man_Path" instance=ExtResource( 11 )]
 position = Vector2( 1771.2, -240.017 )
 rotation = -0.863561
 offset = 1900.0
 
 [node name="DhimeBaja" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 9 )
+stream = ExtResource( 8 )
 volume_db = 15.0
-script = ExtResource( 10 )
+script = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 1280.4, -693.457 )
@@ -411,7 +411,7 @@ current = true
 zoom = Vector2( 2.5, 2.5 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
-script = ExtResource( 5 )
+script = ExtResource( 13 )
 
 [node name="Checkpoint" type="StaticBody2D" parent="."]
 position = Vector2( 4308.52, -232.777 )
@@ -421,9 +421,9 @@ z_index = -1
 position = Vector2( -116.736, 87.552 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 46 )
-frame = 3
+frame = 11
 playing = true
 
 [node name="Sprite" type="Sprite" parent="Checkpoint"]
 position = Vector2( -152, 147.265 )
-texture = ExtResource( 21 )
+texture = ExtResource( 9 )

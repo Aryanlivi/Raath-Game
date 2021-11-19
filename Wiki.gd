@@ -1,18 +1,17 @@
-extends Camera2D
+extends TextureButton
 
 
 # Declare member variables here. Examples:
-onready var Raath=get_parent().get_node("Raath/RaathSprite").get_node("lowerbody")
-var cam_offset=1000
+# var a = 2
+# var b = "text"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-func _process(delta):
-	self.position.x=Raath.global_position.x+cam_offset
-		
-
+func _pressed():
+	OS.shell_open("https://www.wikiwand.com/en/Rato_Machindranath_Jatra")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

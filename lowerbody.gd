@@ -15,7 +15,6 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
 func _on_lowerbody_input_event(viewport, event, shape_idx):
 	if Input.is_action_pressed("click"):
 		Game.raath_part_to_attach=self

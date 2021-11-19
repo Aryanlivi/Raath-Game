@@ -15,7 +15,6 @@ surfaces/0 = {
 
 [sub_resource type="StreamTexture" id=2]
 flags = 4
-load_path = "res://.import/oldstickman.png-e53f1962108b6ab17649787a83ac57b5.stex"
 
 [node name="Man" type="KinematicBody2D"]
 

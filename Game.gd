@@ -49,3 +49,8 @@ func DRAG_STATE():
 	allow_attach=false
 	allow_pull=false
 	allow_drag=true
+func END_STATE():
+	allow_attach=false
+	allow_pull=false
+	allow_drag=false
+	raath_part_to_attach=null

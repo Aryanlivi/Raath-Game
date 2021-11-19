@@ -8,10 +8,10 @@
 scale = Vector2( 2, 2 )
 
 [node name="Right" type="Button" parent="."]
-margin_left = 105.562
-margin_top = 0.595276
-margin_right = 133.562
-margin_bottom = 20.5953
+margin_left = 53.6488
+margin_top = 1.53915
+margin_right = 81.6488
+margin_bottom = 21.5392
 text = "=>"
 script = ExtResource( 1 )
 __meta__ = {
@@ -36,16 +36,6 @@ margin_right = 48.1669
 margin_bottom = 20.7937
 text = "Rope"
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Drink" type="Button" parent="."]
-margin_left = 53.9716
-margin_top = 1.19055
-margin_right = 99.9716
-margin_bottom = 21.1906
-text = "Drink"
 __meta__ = {
 "_edit_use_anchors_": false
 }

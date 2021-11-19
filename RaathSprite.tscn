@@ -190,6 +190,8 @@ position = Vector2( 152, -312 )
 input_pickable = true
 mass = 300.0
 physics_material_override = SubResource( 8 )
+contacts_reported = 10
+contact_monitor = true
 sleeping = true
 script = ExtResource( 9 )
 

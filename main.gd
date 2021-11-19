@@ -60,4 +60,7 @@ func _process(delta):
 		Game.PULL_STATE()
 	if(Game.gamestate==Game.state.DRAG):
 		Game.DRAG_STATE()
+	if(Game.gamestate==Game.state.END):
+		Game.END_STATE()
+		
 	
